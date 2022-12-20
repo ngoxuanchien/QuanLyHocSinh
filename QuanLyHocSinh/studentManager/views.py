@@ -5,7 +5,7 @@ from .filters import *
 
 # Create your views here.
 # @login_required(login_url = 'login')
-# def showClasses(request):
+# def dsLop(request):
 #     students = Student.objects.all()
 #     class_filter = classFilter(request.GET, queryset=students)
 #     students = class_filter.qs.order_by('user__name')
@@ -14,4 +14,4 @@ from .filters import *
 #         'students': zip(students,format_date),
 #         'class_filter': class_filter,
 #     }
-#     return render(request, ' .html', context)
+#     return render(request, 'dslop.html', context)
