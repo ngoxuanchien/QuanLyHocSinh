@@ -34,8 +34,8 @@
     <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
     <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="">  <!--Add static here-->
+    <link rel="stylesheet" href="">  <!--Add static here-->
 
 </head>
 
@@ -73,10 +73,17 @@
         <!-- {%if user.role == '1' %}
         <div class="main_form_term col-lg-3">
             <div class="row">
-                <a href="{% url 'chonNienKhoaLop' %}" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
+                <a href="" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
             </div>
         </div>
         {%endif%} -->
+
+        <!--Delete this and use if when have user.role-->
+        <div class="main_form_term col-lg-3">
+            <div class="row">
+                <a href="" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
+            </div>
+        </div>
     </form>
 
     <table class="table table-sm">
