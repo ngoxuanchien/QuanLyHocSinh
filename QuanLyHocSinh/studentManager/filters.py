@@ -3,16 +3,15 @@ from django_filters import CharFilter, ChoiceFilter
 from .models import *
 from django import forms
 
-
-class classFilter(django_filters.FilterSet):
+class ClassFilter(django_filters.FilterSet):
     try:
-        classes =[]
-        year = []
+        class_list =[]
+        year_list = []
         for student in Student.objects.all():
-            for c in student.classInSchool.all():
-                classes.append(c)
-                year.append(c.school_year.year)
-        class_choices = [(c.classID, c.classID) for c in set(classes)]
+            for c in student.classOfSchool.all():
+                class_list.append(c)
+                year_list.append(c.year.year)
+        class_choices = [(c.classID, c.classID) for c in set(class_list)]
         classInSchool = ChoiceFilter(
             label='',
             choices=class_choices,
@@ -20,9 +19,9 @@ class classFilter(django_filters.FilterSet):
             widget=forms.Select(attrs={'class': 'form-select'})
         )
 
-        year_choices = [(y, y) for y in set(year)]
+        year_choices = [(y, y) for y in set(year_list)]
 
-        year = ChoiceFilter(
+        year_list = ChoiceFilter(
             label='Niên khóa',
             choices=year_choices,
             method='filter_by_year',
@@ -36,7 +35,7 @@ class classFilter(django_filters.FilterSet):
         fields = []
     
     def filter_by_class(self, queryset, name, value):
-        return queryset.filter(classInSchool__classID = value)
+        return queryset.filter(classOfSchool__classID = value)
 
     def filter_by_year(self, queryset, name, value):
-        return queryset.filter(classInSchool__school_year = Age.objects.get(year = value))
+        return queryset.filter(classOfSchool__year = Age.objects.get(year_list = value))

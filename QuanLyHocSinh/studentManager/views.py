@@ -5,13 +5,13 @@ from .filters import *
 
 # Create your views here.
 # @login_required(login_url = 'login')
-# def dsLop(request):
-#     students = Student.objects.all()
-#     class_filter = classFilter(request.GET, queryset=students)
-#     students = class_filter.qs.order_by('user__name')
-#     format_date = [s.user.dateOfBirth.strftime("%d-%m-%y") for s in students]
-#     context = {
-#         'students': zip(students,format_date),
-#         'class_filter': class_filter,
-#     }
-#     return render(request, 'dslop.html', context)
+def dsLop(request):
+    students = Student.objects.all()
+    class_filter = ClassFilter(request.GET, queryset=students)
+    students = class_filter.qs.order_by('user__name')
+    format_date = [s.user.dateOfBirth.strftime("%d-%m-%y") for s in students]
+    context = {
+        'students': zip(students,format_date),
+        'class_filter': class_filter,
+    }
+    return render(request, 'dslop.html', context)

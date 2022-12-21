@@ -57,10 +57,10 @@ class Age(models.Model):
         return self.year
 
 
-class classInSchool(models.Model):
+class SchoolClass(models.Model):
     classID = models.CharField(max_length=10, null=False, unique=False)
     n_students = models.IntegerField(null=False)
-    school_year = models.ForeignKey(Age, null=False, on_delete=models.CASCADE)
+    year = models.ForeignKey(Age, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.classID
@@ -85,7 +85,7 @@ class Admin(models.Model):
 
 class Student(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    classOfSchool = models.ManyToManyField(classInSchool, blank=True)
+    classOfSchool = models.ManyToManyField(SchoolClass, blank=True)
 
     def __str__(self):
         return self.user.username
@@ -93,7 +93,7 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    classOfSchool = models.ManyToManyField(classInSchool,blank =True)
+    classOfSchool = models.ManyToManyField(SchoolClass,blank =True)
     subject = models.ForeignKey(Subject,blank =True, on_delete=models.CASCADE)
 
     def __str__(self):
