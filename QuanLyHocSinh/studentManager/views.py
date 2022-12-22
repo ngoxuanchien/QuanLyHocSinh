@@ -3,10 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .filters import *
 
-def tempHome(request):
+def homepage(request):
     message = "This is temporary home page for our project"
     context = {'message': message}
-    return render(request, 'studentManager/temp_home.html', context)
+    return render(request, 'studentManager/homepage.html', context)
 
 
 # Create your views here.

@@ -1,9 +1,7 @@
-<h5>ĐÂY LÀ 'dslop.html' DÙNG ĐỂ HIỂN THỊ DANH SÁCH LỚP</h5>
-<h5>KHI LÀM VIEW NÀY VẪN CHƯA CÓ DATABASE</h5>
-<h5>SAU KHI TẠO ĐỦ DATABASE, KHI CHẠY VUI LÒNG BỎ GHI CHÚ CỦA 'studentManager/views.py/dsLop'</h5>
-<a href = "{% url 'home' %}"> Back</a>
-<hr>
+{% extends 'studentManager/base.html' %}
 
+
+{% block content %}
 
 
 <!DOCTYPE html>
@@ -124,3 +122,5 @@
     </table>
 </div>
 </html>
+
+{% endblock content %}
