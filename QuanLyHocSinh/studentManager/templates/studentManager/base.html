@@ -68,6 +68,9 @@
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="search" placeholder="Search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">
+                        <a class="dropdown-item" href="{% url 'logout_user' %}">Log out</a>
+                    </button>
                 </form>
             </div>
         </div>

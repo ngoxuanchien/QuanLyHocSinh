@@ -1,0 +1,10 @@
+[MANH]
+0. (Phương) trên thanh công cụ, vào Thông tin lớp học / Danh sách lớp
+1. Login:
+username: admin; pass: 123
+username: admin1; pass: 123
+2. Logout:
+Nhấn Logout bên góc phải trên.
+3. Get_user_details (On track):
+Thêm 'get_user_details' ở cuối địa chỉ ip (đường link)
+
