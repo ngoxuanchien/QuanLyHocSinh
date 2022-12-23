@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import *
 from .filters import *
+from .forms import *
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -50,7 +51,7 @@ def logout_user(request):
     logout(request)
     return HttpResponseRedirect("/")
 
-# Create your views here.
+
 # @login_required(login_url = 'login')
 def dsLop(request):
     # students = Student.objects.all()
@@ -63,3 +64,14 @@ def dsLop(request):
     # 
     context = {}
     return render(request, 'studentManager/dslop.html', context)
+
+
+# @login_required(login_url='login')
+def chonNamHoc(request):
+    form = YearForm()
+    age = Age.objects.all()
+    context = {
+        'form': form,
+        'age': age
+    }
+    return render(request, 'studentManager/chonNamHoc.html', context)

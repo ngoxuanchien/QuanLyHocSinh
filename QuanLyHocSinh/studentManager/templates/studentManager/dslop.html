@@ -2,41 +2,6 @@
 
 
 {% block content %}
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-
-    <style>
-        h3 {text-align: center;}
-        div {text-align: center;}
-
-    </style>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Student Management System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS CDN -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-
-    <!-- Font Awesome JS -->
-    <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
-    <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
-
-    <link rel="stylesheet" href="">  <!--Add static here-->
-    <link rel="stylesheet" href="">  <!--Add static here-->
-
-</head>
-
 <h3 class="label">Danh sách lớp</h3>
 <div class="card card-body shadow-lg">
     <form method="get" class="main_form-header row">
@@ -71,15 +36,15 @@
         <!-- {%if user.role == '1' %}
         <div class="main_form_term col-lg-3">
             <div class="row">
-                <a href="" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
+                <a href="{% url 'chonNamHoc' %}" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
             </div>
         </div>
         {%endif%} -->
 
-        <!--Delete this and use if when have user.role-->
+        <!-- Delete this and use if when have user.role -->
         <div class="main_form_term col-lg-3">
             <div class="row">
-                <a href="" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
+                <a href="{% url 'chonNamHoc' %}" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
             </div>
         </div>
     </form>
