@@ -4,6 +4,9 @@ from django.contrib.auth.models import AbstractBaseUser, UserManager, AbstractUs
 from django.contrib.auth.hashers import make_password
 from datetime import datetime
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 class CustomUserManager(UserManager):
     def _create_user(self, username, password, **extra_fields):
         user = CustomUser(username=username, **extra_fields)
@@ -114,3 +117,24 @@ class Mark(models.Model):
     
     def __str__(self):
         return self.student.user.username+ '_'+ self.semester_mark
+    
+
+@receiver(post_save, sender=CustomUser)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        if instance.USER_TYPE == 1:
+            Admin.objects.create(admin=instance)
+        if instance.USER_TYPE == 2:
+            Teacher.objects.create(admin=instance)
+        if instance.USER_TYPE == 3:
+            Student.objects.create(admin=instance)
+
+
+@receiver(post_save, sender=CustomUser)
+def save_user_profile(sender, instance, **kwargs):
+    if instance.USER_TYPE == 1:
+        instance.admin.save()
+    if instance.USER_TYPE == 2:
+        instance.teacher.save()
+    if instance.USER_TYPE == 3:
+        instance.student.save()

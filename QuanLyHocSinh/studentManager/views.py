@@ -3,12 +3,20 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .filters import *
 
+from django.http import HttpResponse, HttpResponseRedirect
 def homepage(request):
     message = "This is temporary home page for our project"
     context = {'message': message}
     return render(request, 'studentManager/homepage.html', context)
 
-
+def loginpage(request):
+    context = {}
+    return render(request, 'studentManager/loginpage.html', context)
+def doLogin(request):
+    if request.method != "POST":
+        return HttpResponse("<h3>Method Not Allowed</h3>")
+    else:
+        return HttpResponse("account:" + request.POST.get('username')+ '-' + request.POST.get('password'))
 # Create your views here.
 # @login_required(login_url = 'login')
 def dsLop(request):
