@@ -6,6 +6,9 @@ from .filters import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from .EmailBackEnd import EmailBackEnd
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 def homepage(request):
     message = "This is temporary home page for our project"
@@ -15,6 +18,9 @@ def homepage(request):
 def loginpage(request):
     context = {}
     return render(request, 'studentManager/loginpage.html', context)
+
+
+@csrf_exempt
 def doLogin(request):
     if request.method != "POST":
         return HttpResponse("<h3>Method Not Allowed</h3>")
@@ -29,7 +35,8 @@ def doLogin(request):
             #return HttpResponse("account:" + request.POST.get('username')+ '-' + request.POST.get('password'))
             return HttpResponseRedirect("home/")
         else:
-            return HttpResponse("Invalid login!")
+            messages.error(request, "Invalid login details")
+            return HttpResponseRedirect("/")
         
 
 def getUserDetails(request):

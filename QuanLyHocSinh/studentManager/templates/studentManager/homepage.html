@@ -1,14 +1,78 @@
-{% extends 'studentManager/base.html' %}
 
+
+{% extends 'studentManager/base.html' %}
+<style>
+    body {
+        margin-left: 60px;
+    }
+</style>
 
 {% block content %}
 
 <!DOCTYPE html>
 <html lang="en">
 
-<body class="d-flex flex-column min-vh-100">
-    <h1>This is homepage of Anh Chiến Phương Bảo Ngọc</h1>
-    <h1>We're about to decorate it, if we have time. :></h1>
+<body class = 'ps-10'>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Dashboard</h1>
+                    </div><!-- /.col -->
+                    
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+    </div>
+<section class="content ps-50">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row justify-content-center">
+            <div class="col">
+                <!-- small box -->
+                <div class="card border-danger mb-3 text-left" style="max-width: 20rem;">
+                    <div class="card-header"><a href="#" class="small-box-footer">Xem thêm &nbsp<i
+                                class="fas fa-arrow-circle-right"></i></a></i></div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Danger card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- ./col -->
+            <div class="col">
+                <div class="card border-warning mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><a href="#" class="small-box-footer text-right">Xem thêm &nbsp<i class="fas fa-arrow-circle-right"></i></a></i></div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Warning card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col">
+                <!-- small box -->
+                <div class="card border-success mb-3" style="max-width: 20rem;">
+                    <div class="card-header"><a href="#" class="small-box-footer">Xem thêm &nbsp<i
+                                class="fas fa-arrow-circle-right"></i></a></i></div>
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Success card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
     <div>
         Chọn thông tin lớp học/danh sách lớp để thấy phần của Phương đã làm.
     </div>
