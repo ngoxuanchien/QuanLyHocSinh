@@ -10,5 +10,7 @@ urlpatterns = [
     path('home/', views.homepage, name = "homepage"),
     path('danhsachlop/', views.dsLop, name = "dsLop"),
     path('chonnamhoc/', views.chonNamHoc, name = "chonNamHoc"),
+    path('lapDSlop/', views.lapDSLop, name = "lapDS"),
+
 
 ]
