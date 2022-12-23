@@ -4,6 +4,9 @@ from .models import *
 from .filters import *
 
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from .EmailBackEnd import EmailBackEnd
+
 def homepage(request):
     message = "This is temporary home page for our project"
     context = {'message': message}
@@ -16,7 +19,30 @@ def doLogin(request):
     if request.method != "POST":
         return HttpResponse("<h3>Method Not Allowed</h3>")
     else:
-        return HttpResponse("account:" + request.POST.get('username')+ '-' + request.POST.get('password'))
+        #return HttpResponse("account:" + request.POST.get('username')+ '-' + request.POST.get('password'))
+        #user = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
+        username1 = request.POST.get('username')
+        password1 = request.POST.get('password')
+        user = EmailBackEnd.authenticate(request, username=username1, password=password1)
+        if user!=None:
+            login(request,user)
+            #return HttpResponse("account:" + request.POST.get('username')+ '-' + request.POST.get('password'))
+            return HttpResponseRedirect("home/")
+        else:
+            return HttpResponse("Invalid login!")
+        
+
+def getUserDetails(request):
+    if request.user != None:
+        return HttpResponse("USER: " + request.user.username + '-user type:' + request.user.USER_TYPE)
+    else:
+        return HttpResponse("Please login first!")
+
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect("/")
+
 # Create your views here.
 # @login_required(login_url = 'login')
 def dsLop(request):
