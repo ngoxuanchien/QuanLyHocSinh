@@ -1,45 +1,7 @@
 {% extends 'studentManager/base.html' %}
 
 {% block content %}
-<style>
-    .button {
-      background-color: #4582ec;
-      border: none;
-      color: white;
-      padding: 7px 15px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 15px;
-      margin: -5px -10px;
-      cursor: pointer;
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-    }
 
-    .button1:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-
-    .anotherbutton {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 7px 7px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 15px;
-      margin: -5px 0px;
-      cursor: pointer;
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-    }
-
-    .button2:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-</style>
 
 <h3 class="label">Danh sách lớp</h3>
 <div class="card card-body shadow-lg">
@@ -69,13 +31,15 @@
         </div>
         <div class="main_form_term col-lg-2">
             <div class="row">
-                    <button type="submit" class="button button1">Xem kết quả</button>                              
+                <button type="submit" class="button button1">Xem kết quả</button>                              
             </div>
         </div>
         <!-- {%if user.role == '1' %}
         <div class="main_form_term col-lg-3">
             <div class="row">
-                <a href="{% url 'chonNamHoc' %}" type="button" class="btn btn-outline-success col-lg-11" >Lập danh sách lớp</a> 
+                <a style="color:white ; text-decoration:none" href="{% url 'chonNamHoc' %}" class="buttonlink button2">
+                    Lập danh sách lớp
+                </a>
             </div>
         </div>
         {%endif%} -->
@@ -83,7 +47,9 @@
         <!-- Delete this and use if when have user.role -->
         <div class="main_form_term col-lg-3">
             <div class="row">
-                <a href="{% url 'chonNamHoc' %}" type="button" class="anotherbutton button2" >Lập danh sách lớp</a>
+                <a style="color:white ; text-decoration:none" href="{% url 'chonNamHoc' %}" class="buttonlink button2">
+                    Lập danh sách lớp
+                </a>
             </div>
         </div>
     </form>
