@@ -52,6 +52,12 @@ def logout_user(request):
     logout(request)
     return HttpResponseRedirect("/")
 
+def themHS(request):
+    context = {}
+    return render(request, 'studentManager/themHS.html', context)
+
+
+
 semester = 2
 
 # @login_required(login_url = 'login')
