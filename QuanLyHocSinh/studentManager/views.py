@@ -125,3 +125,62 @@ def lapDSLop(request, pk):
         'form': form,
     }
     return render(request, 'admin_template/lapDS.html', context=context)
+
+def trungBinhMon(subject, student):
+    for mark in Mark.objects.filter(student=student).filter(subject=subject):
+        if mark.semester_mark == '1':
+            avgMarks1 = round((mark.markFifteen + 2 * mark.markOne + 3 * mark.markFinal) / 6, 2)
+        else:
+            avgMarks2 = round((mark.markFifteen + 2 * mark.markOne + 3 * mark.markFinal) / 6, 2)
+    return avgMarks1, avgMarks2
+
+# @login_required(login_url='login')
+def traCuuNamHoc(request):
+    form = YearForm()
+    age = Age.objects.all()
+    context = {
+        'form': form,
+        'age': age
+    }
+    return render(request, 'studentManager/traCuuNamHoc.html', context)
+
+
+#@allowed_users(allowed_roles=['Admin', 'Teacher'])
+@login_required(login_url='login')
+def traCuu(request): #,pk):
+
+    '''year = Age.objects.get(id =pk)
+    marks = Mark.objects.filter(subject__year= year)
+    marksFilter = StudentInMarkFilter(request.GET, queryset=marks)
+    marks = marksFilter.qs.order_by('student__user__name')
+    students = []
+    avgMarks1 = []
+    avgMarks2 = []
+    classOfSchool = []
+    marks_in_year = marks
+    students_in_year = set([mark.student for mark in marks_in_year])
+    print(students_in_year)
+    for student in students_in_year:
+        students.append(student)
+        subjects_in_year = set([mark.subject for mark in marks_in_year])
+        m = [trungBinhMon(subject, student) for subject in subjects_in_year]
+        s1 =0
+        s2 = 0
+        for i in m:
+            s1+= i[0]
+            s2 += i[1]
+        avgMarks1.append(s1/len(m))
+        avgMarks2.append(s2/len(m))
+        for c in student.classOfSchool.all():
+            if c.year == year:
+                classOfSchool.append(c)
+                break
+
+    marks = zip(students, classOfSchool, avgMarks1, avgMarks2)
+    
+    context = {
+        'marks': marks,
+        'marksFilter': marksFilter
+    }'''
+    context ={}
+    return render(request, 'studentManager/traCuu.html', context)
