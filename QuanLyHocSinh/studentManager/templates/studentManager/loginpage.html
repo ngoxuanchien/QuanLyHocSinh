@@ -9,31 +9,10 @@
     <title>Student Management System</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-<body class="d-flex flex-column min-vh-100" style='background-color:#3768bd'>
-
-
-    <!-- <div class="container-fluid">
-        <h3>LoginPage</h3>
-        <div class="form-group" style="max-width: 20rem;">
-            <label class="form-label mt-4">Floating labels</label>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
-            <div>
-            <button class="btn btn-fg btn-primary" type="button">Đăng nhập</button>
-            </div>
-        </div>
-    </div> -->
-
-
-    <div class="container h-100">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card border-success mb-3">
+<body class="justify-content-center align-items-center" style='background-color:#260261'>
+    <div  style='background-color:#260261'>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="card border-success ps-3 pe-3 pt-4 pb-5 mt-5 mx-auto ">
                 <div class="d-flex justify-content-center">
                     <h3 id="form-title">LOGIN</h3>
                 </div>
@@ -53,7 +32,7 @@
                             <input type="password" name="password" placeholder="Password..." class="form-control">
                         </div>
                         
-                        <div class="d-flex  align-items-center justify-content-center mt-3 login_container">
+                        <div class="d-flex  align-items-center justify-content-center login_container mt-3 mb-2">
                             <input class="btn btn-outline-success" type="submit" value="Login">    
                         </div>
                         {% if messages %}
