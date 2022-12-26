@@ -10,6 +10,9 @@ urlpatterns = [
     path('themHS', views.themHS, name = 'themHS'),
     #path('themHS_save', views.themHS_save, name='themHS_save'),
     path("danhsachtaikhoanHS/", views.dsTaiKhoanHS, name='dsTaiKhoanHS'),
+    path("danhsachtaikhoanHS/capnhat/<int:account_id>", views.capNhatTKHS, name='capNhatTKHS'),
+    #path("danhsachtaikhoanHS/delete/<int:account_id>", views.xoaTKHS, name='xoaTKHS'),
+    
     
     path('profile', views.userProfile, name = 'userProfile'),
     
