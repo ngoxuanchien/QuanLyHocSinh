@@ -1,0 +1,39 @@
+{% extends 'studentManager/base.html' %}
+{% load static %}
+{% block content %}
+    <h3 class="label">Tra cứu niên khóa</h3>
+    <div class="card card-body shadow-lg">
+        <div class="jus_center row">
+            <div class='col-lg-6'>
+                {% csrf_token %}
+                <table class="table table-sm">
+                    <tr>
+                        <th>STT</th>
+                        <th>Niên khóa</th>
+                        <th>Lựa chọn</th>
+                    </tr>
+                    <!--Example start-->
+                    <tr>
+                        <td>1</td>
+                        <td>2020 - 2021</td>
+                        <td>
+                            <a href="{% url 'traCuu' %}" class="btn btn-primary">Chọn</a>
+                        </td>
+                    </tr>
+                    <!--Example end-->
+                    <!--Nhớ unnote khi tạo đủ database-->
+                    <!--{% for y in age %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{y.year}}</td>
+                            <td>
+                                <a href="{% url 'traCuu' y.id %}" class="btn btn-primary">Chọn</a>
+                            </td>
+                        </tr>
+                    {% endfor %}-->
+                </table>
+            </div>
+        </div>
+        
+    </div>
+{% endblock content %}

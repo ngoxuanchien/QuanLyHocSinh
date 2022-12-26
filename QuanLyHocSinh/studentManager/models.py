@@ -2,10 +2,12 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, UserManager, AbstractUser
 # Create your models here.
 from django.contrib.auth.hashers import make_password
-from datetime import datetime
-
+from datetime import datetime, date
+from django.utils import timezone
+import pytz
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+
 
 class CustomUserManager(UserManager):
     def _create_user(self, username, password, **extra_fields):
@@ -31,24 +33,27 @@ class CustomUserManager(UserManager):
 class CustomUser(AbstractUser):
     USER_TYPE = (('1', "Admin"), ('2', "Teacher"), ('3', "Student"))
     SEX_CATELOGY = [("1", "Nam"), ("0", "Nữ")]
-    now = datetime.now().strftime('%Y-%m-%d')
+    #now = datetime.now().strftime('%Y-%m-%d')
+    # dateOfBirth = models.DateField(default=datetime.strptime(now,'%Y-%m-%d')
+    now = date.today
     username = models.CharField(max_length=200, unique=True)
     role = models.CharField(default='1', choices=USER_TYPE, max_length=1)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     name = models.CharField(default='', max_length=200)
-    dateOfBirth = models.DateTimeField(default=datetime.strptime(now,'%Y-%m-%d'))
+    
+    dateOfBirth = models.DateField(default=now)
     sex = models.CharField(default='1', choices=SEX_CATELOGY,max_length=1)
-    phone = models.CharField(default='', max_length=20)
-    email = models.EmailField(default='')
-    address = models.TextField(default='')
+    phone = models.CharField(default='', max_length=20, blank=True)
+    email = models.EmailField(default='', blank=True)
+    address = models.TextField(default='', blank=True)
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.username
+        return self.username 
 
 
 class Age(models.Model):

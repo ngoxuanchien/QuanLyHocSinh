@@ -1,0 +1,54 @@
+{% extends 'studentManager/base.html' %}
+{% load static %}
+{% block content %}
+
+<h3 class="label">Tra cứu học sinh</h3>
+    <div class="card card-body shadow-lg">
+        <form method="get" class="main_form-header row">
+            {% csrf_token %}
+            <div class="main_form_class col-lg-4">
+                <div class="row">
+                    <div class="main_form_title col-lg-2">
+                        <p>Tên</p>
+                    </div>
+                    <div class="main_form_select col-lg-8">
+                        <!--{{marksFilter.form.name}}-->
+                        Trần Kiều Trang
+                    </div>
+                </div>
+            </div>
+            <div class="main_form_term col-lg-2">
+                <div class="row">
+                    <button type="submit" class= "button button1">Tìm kiếm</button>                              
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-sm">
+            <tr>
+                <th>STT</th>
+                <th>Họ Tên</th>
+                <th>Lớp</th>
+                <th>TB học kì 1</th>
+                <th>TB học kì 2</th>
+            </tr>
+            <!--{% for student, classOfSchool, avg1, avg2 in marks %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{student.user.name}}</td>
+                    <td>{{SchoolClass.classId}}</td>
+                    <td>{{avg1}}</td>
+                    <td>{{avg2}}</td>
+                </tr>
+            {% endfor %}-->
+            <!--Examples-->
+            <tr>
+                <td>1</td>
+                <td>Trần Kiều Trang</td>
+                <td>10A1</td>
+                <td>9.2</td>
+                <td>8.9</td>
+            </tr>
+        </table>
+    </div>   
+{% endblock content %}

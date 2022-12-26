@@ -103,11 +103,21 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false">Tài khoản</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'dsTaiKhoanHS' %}">Danh sách Học sinh</a>
+                            <a class="dropdown-item" href="#">Danh sách Giáo viên</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Danh sách Admin</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Thông tin lớp học</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'dsLop' %}">Danh sách lớp</a>
-                            <a class="dropdown-item" href="#">Tra cứu HS</a>
+                            <a class="dropdown-item" href="{% url 'traCuuNamHoc' %}">Tra cứu HS</a>
                         </div>
                     </li>
                     <!-- <li class="nav-item">
@@ -130,9 +140,19 @@
                             <a class="dropdown-item" href="#">Môn học</a>
                         </div>
                     </li>
+                    
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'userProfile' %}">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="{% url 'logout_user' %}">Đăng xuất</a>
+                        </div>
+                    </li>
+                    
+                    <!-- <input class="form-control me-sm-2" type="search" placeholder="Search"> -->
                     <!--<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">
                         <a class="dropdown-item" href="{% url 'logout_user' %}">Log out</a>
