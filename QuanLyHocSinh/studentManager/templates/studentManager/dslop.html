@@ -13,8 +13,8 @@
                     <p>Lớp</p>
                 </div>
                 <div class="main_form_select col-lg-6">
-                    <!-- {{class_filter.form.classOfSchool}} -->
-                    10A1    <!-- example-->
+                    {{class_filter.form.classOfSchool}}
+                    <!-- 10A1    example -->
                 </div>
             </div>
         </div>
@@ -24,8 +24,8 @@
                     <p>Niên khóa</p>
                 </div>
                 <div class="main_form_select col-lg-6">
-                    <!-- {{class_filter.form.year}} -->
-                    20-21  <!-- example-->
+                    {{class_filter.form.year}}
+                    <!-- 20-21  example -->
                 </div>
             </div>
         </div>
@@ -65,17 +65,17 @@
         </tr>
 
         <!--Example start-->
-        <tr>
+        <!-- <tr>
             <td>1</td>
             <td>Trần Kiều Trang</td>
             <td>21/09/2004</td>
             <td>Nữ</td>
             <td>example@gmail.com</td>
             <td>123 đường số 1</td>
-        </tr>
+        </tr> -->
         <!--Example end-->
 
-        <!-- {% for student, date in students %}
+        {% for student, date in students %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{student.user.name}}</td>
@@ -88,7 +88,7 @@
                 <td>{{student.user.email}}</td>
                 <td>{{student.user.address}}</td>
             </tr>
-        {% endfor %} -->
+        {% endfor %}
     </table>
 </div>
 </html>

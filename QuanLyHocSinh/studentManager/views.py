@@ -140,7 +140,7 @@ def userProfile(request):
 
 # @allowed_users(allowed_roles=['Admin'])
 def dsTaiKhoanHS(request):
-    accountsStudent = Student.objects.all()
+    accountsStudent = Student.objects.all().order_by('user__name')
     formatDate = [a.user.dateOfBirth.strftime(
         "%d-%m-%y") for a in accountsStudent]
     accounts = zip(accountsStudent, formatDate)
@@ -155,15 +155,15 @@ semester = 2
 
 # @login_required(login_url = 'login')
 def dsLop(request):
-    # students = Student.objects.all()
-    # class_filter = ClassFilter(request.GET, queryset=students)
-    # students = class_filter.qs.order_by('user__name')
-    # format_date = [s.user.dateOfBirth.strftime("%d-%m-%y") for s in students]
-    # context = {
-    #     'students': zip(students,format_date),
-    #     'class_filter': class_filter,
-    # 
-    context = {}
+    students = Student.objects.all()
+    class_filter = ClassFilter(request.GET, queryset=students)
+    students = class_filter.qs.order_by('user__name')
+    format_date = [s.user.dateOfBirth.strftime("%d-%m-%y") for s in students]
+    context = {
+        'students': zip(students,format_date),
+        'class_filter': class_filter,
+        }
+    
     return render(request, 'studentManager/dslop.html', context)
 
 
