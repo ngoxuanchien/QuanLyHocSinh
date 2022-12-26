@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser, UserManager, AbstractUs
 from django.contrib.auth.hashers import make_password
 from datetime import datetime, date
 from django.utils import timezone
-import pytz
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
