@@ -11,6 +11,7 @@ from .EmailBackEnd import EmailBackEnd
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 
 def homepage(request):
     message = "This is temporary home page for our project"
@@ -154,10 +155,48 @@ def dsTaiKhoanHS(request):
     return render(request, 'studentManager/dsTaikhoanHS.html', context=context)
 
 
+# @allowed_users(allowed_roles=['Admin'])
+def capNhatTKHS(request, account_id):
+    account = get_object_or_404(Student, id=account_id)
+    user = get_object_or_404(CustomUser, id=account.user.id)
+    form = updateCustomUserForm(request.POST or None, instance=user)
+    context = {
+        'form': form,
+    }
+    if request.method == 'POST':
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            name = form.cleaned_data.get('name')
+            dateOfBirth = form.cleaned_data.get('dateOfBirth')
+            sex = form.cleaned_data.get('sex')
+            email = form.cleaned_data.get('email')
+            phone = form.cleaned_data.get('phone')
+            address = form.cleaned_data.get('address')
+            try:
+                account = Student.objects.get(id=account.id)
+                user = CustomUser.objects.get(id=account.user.id)
+                user.username = username
+                user.name = name
+                user.dateOfBirth = dateOfBirth
+                user.sex = sex
+                user.email = email
+
+                user.address = address
+                user.save()
+                messages.success(request, "Cập nhật thành công")
+                #return redirect(to='dsTaiKhoanHS')
+                return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
+            except:
+                messages.error(request, "Không thể Không thể cập nhật")
+        else:
+            messages.error(request, "Dữ liệu không phù hợp")
+    else:
+        return render(request, "studentManager/capNhatHS.html", context)
+
+
 semester = 2
 
 # @login_required(login_url = 'login')
-
 
 def dsLop(request):
     students = Student.objects.all()

@@ -29,7 +29,7 @@
 
             <td>{{account.user.address}}</td>
             <td>
-                <a href="#" class="btn btn-primary">Cập nhật</a> -
+                <a href="{% url 'capNhatTKHS' account.id %}"  class="btn btn-primary">Cập nhật</a> -
                 <a href="#" onclick="return confirm('Xác nhận xóa tài khoản này ?')"
                     class="btn btn-danger">Xóa</a>
             </td>

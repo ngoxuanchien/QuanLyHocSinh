@@ -108,6 +108,44 @@ class StudentForm(CustomUserForm):
         # }
 
 
+class updateCustomUserForm(forms.ModelForm):
+    try:
+        username = forms.CharField(label="", widget=forms.TextInput(
+            attrs={'id': "username_user", 'class': "form-control"
+                   }))
+
+        name = forms.CharField(label='', widget=forms.TextInput(
+            attrs={'id': "name_user", 'class': "form-control"
+                   }))
+        dateOfBirth = forms.CharField(label="", widget=forms.DateInput(
+            attrs={'type': 'date', 'id': "datepicker", 'class': 'form-control'
+                   }))
+
+        sex = forms.CharField(label="", widget=forms.Select(
+            choices=CustomUser().SEX_CATELOGY,
+            attrs={'class': 'form-select', 'id': 'sex_user'
+                   }))
+
+        email = forms.CharField(label="", widget=forms.TextInput(
+            attrs={'type': 'email', 'id': 'email_user', 'class': 'form-control',
+                   }))
+
+        address = forms.CharField(label="", widget=forms.Textarea(
+            attrs={"rows": 4, 'class': 'form-control', 'id': 'address_user',
+                   'placeholder': "12, đường 01, quận 1, tp HCM"
+                   }))
+
+
+        address.required = False
+
+        email.required = False
+    except:
+        ''''''
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'name', 'dateOfBirth',
+                  'sex', 'email', 'address']
+
 
 
 class YearForm(ModelForm):
