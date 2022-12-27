@@ -2,21 +2,8 @@
 {% load static %}
 {% block content %}
 <h3 class="label">Tài khoản học sinh</h3>
-{% if messages %}
-<!-- Error message -->
-<div class="d-flex justify-content-center">
-    {% for message in messages %}
-    {% if message.tags == 'error' %}
-    <div>{{ message }}</div>
-    {% endif %}
-    {% if message.tags == 'success' %}
-    <div>{{ message }}</div>
-    {% endif %}
-    {% endfor %}
-</div>
-{% endif %}
 <div class="card card-body shadow-lg">
-                    
+
     <table class="table table-sm">
         <tr>
             <th>STT</th>
@@ -42,7 +29,7 @@
 
             <td>{{account.user.address}}</td>
             <td>
-                <a href="{% url 'capNhatTKHS' account.id %}" class="btn btn-primary">Cập nhật</a> -
+                <a href="#" class="btn btn-primary">Cập nhật</a> -
                 <a href="#" onclick="return confirm('Xác nhận xóa tài khoản này ?')"
                     class="btn btn-danger">Xóa</a>
             </td>
