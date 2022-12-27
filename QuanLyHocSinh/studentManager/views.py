@@ -194,6 +194,16 @@ def capNhatTKHS(request, account_id):
         return render(request, "studentManager/capNhatHS.html", context)
 
 
+# @allowed_users(allowed_roles=['Admin'])
+def xoaTKHS(request, account_id):
+    account = get_object_or_404(Student, id=account_id)
+    user = CustomUser.objects.filter(username=account.user.username)
+    user.delete()    
+    messages.success(request, "Xóa thành công !")
+    #return redirect(reverse('dsTaiKhoanHS'))
+    return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
+
+
 semester = 2
 
 # @login_required(login_url = 'login')
