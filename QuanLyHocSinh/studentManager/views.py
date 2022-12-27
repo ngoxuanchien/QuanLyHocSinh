@@ -12,7 +12,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 
-
 def homepage(request):
     message = "This is temporary home page for our project"
     context = {'message': message}
