@@ -205,9 +205,7 @@ def xoaTKHS(request, account_id):
 
 
 semester = 2
-
-# @login_required(login_url = 'login')
-
+@login_required(login_url = 'loginpage')
 def dsLop(request):
     students = Student.objects.all()
     class_filter = ClassFilter(request.GET, queryset=students)
@@ -217,11 +215,10 @@ def dsLop(request):
         'students': zip(students, format_date),
         'class_filter': class_filter,
     }
-
     return render(request, 'studentManager/dslop.html', context)
 
 
-# @login_required(login_url='login')
+@login_required(login_url='loginpage')
 def chonNamHoc(request):
     form = YearForm()
     age = Age.objects.all()
@@ -232,7 +229,7 @@ def chonNamHoc(request):
     return render(request, 'studentManager/chonNamHoc.html', context)
 
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def lapDSLop(request, pk):
     year = Age.objects.get(id=pk)
     student_list1 = []
@@ -245,8 +242,7 @@ def lapDSLop(request, pk):
     for student in Student.objects.all():
         if student not in student_list1:
             student_list2.append(student)
-    formatDate = [a.user.dateOfBirth.strftime(
-        "%d-%m-%y") for a in student_list2]
+    formatDate = [a.user.dateOfBirth.strftime("%d-%m-%y") for a in student_list2]
     form = lapDSForm(request.POST, age_id=pk)
     if request.method == 'POST':
         usernames = request.POST.getlist('username_class')
@@ -281,6 +277,7 @@ def lapDSLop(request, pk):
         'form': form,
     }
     return render(request, 'admin_template/lapDS.html', context=context)
+
 
 
 def trungBinhMon(subject, student):

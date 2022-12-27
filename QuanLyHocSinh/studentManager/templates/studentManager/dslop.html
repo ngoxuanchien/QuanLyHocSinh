@@ -34,7 +34,7 @@
                 <button type="submit" class="button button1">Xem kết quả</button>                              
             </div>
         </div>
-        <!-- {%if user.role == '1' %}
+        {%if user.role == '1' %}
         <div class="main_form_term col-lg-3">
             <div class="row">
                 <a style="color:white ; text-decoration:none" href="{% url 'chonNamHoc' %}" class="buttonlink button2">
@@ -42,16 +42,7 @@
                 </a>
             </div>
         </div>
-        {%endif%} -->
-
-        <!-- Delete this and use if when have user.role -->
-        <div class="main_form_term col-lg-3">
-            <div class="row">
-                <a style="color:white ; text-decoration:none" href="{% url 'chonNamHoc' %}" class="buttonlink button2">
-                    Lập danh sách lớp
-                </a>
-            </div>
-        </div>
+        {%endif%}
     </form>
 
     <table class="table table-sm">
@@ -63,18 +54,6 @@
             <th>Email</th>
             <th>Địa chỉ</th>
         </tr>
-
-        <!--Example start-->
-        <!-- <tr>
-            <td>1</td>
-            <td>Trần Kiều Trang</td>
-            <td>21/09/2004</td>
-            <td>Nữ</td>
-            <td>example@gmail.com</td>
-            <td>123 đường số 1</td>
-        </tr> -->
-        <!--Example end-->
-
         {% for student, date in students %}
             <tr>
                 <td>{{ forloop.counter }}</td>
