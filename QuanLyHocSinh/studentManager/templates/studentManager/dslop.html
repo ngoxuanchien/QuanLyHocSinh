@@ -1,9 +1,15 @@
 {% extends 'studentManager/base.html' %}
 
 {% block content %}
+<style>
+    h3 {text-align: center;}
+    div {text-align: center;} 
+    h1 {text-align: center;}
+</style>
 
-
+<br>
 <h3 class="label">Danh sách lớp</h3>
+<br>
 <div class="card card-body shadow-lg">
     <form method="get" class="main_form-header row">
         {% csrf_token %}
@@ -14,7 +20,6 @@
                 </div>
                 <div class="main_form_select col-lg-6">
                     {{class_filter.form.classOfSchool}}
-                    <!-- 10A1    example -->
                 </div>
             </div>
         </div>
@@ -25,7 +30,6 @@
                 </div>
                 <div class="main_form_select col-lg-6">
                     {{class_filter.form.year}}
-                    <!-- 20-21  example -->
                 </div>
             </div>
         </div>
@@ -44,7 +48,7 @@
         </div>
         {%endif%}
     </form>
-
+<br>
     <table class="table table-sm">
         <tr>
             <th>STT</th>
