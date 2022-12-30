@@ -85,7 +85,7 @@ class TeacherForm(CustomUserForm):
 class StudentForm(CustomUserForm):
     try:
         class_choices = {(None, '-----')}
-        class_choices.update(set([(c.classId, c.classId)
+        class_choices.update(set([(c.classID, c.classID)
                              for c in SchoolClass.objects.all()]))
         classOfSchool = forms.CharField(label="", widget=forms.Select(
             choices=class_choices,
