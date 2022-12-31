@@ -1,173 +1,125 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <style>
-        /* Button style for dslop start */
-        .button {
-      background-color: #4582ec;
-      border: none;
-      color: white;
-      padding: 7px 15px;
-      border-radius: 12px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 15px;
-      margin: -5px -15px;
-      cursor: pointer;
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-    }
-
-    .button1:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-
-    .buttonlink {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 7px 15px;
-      border-radius: 12px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 15px;
-      margin: -5px 0px;
-      cursor: pointer;
-      -webkit-transition-duration: 0.4s;
-      transition-duration: 0.4s;
-    }
-
-    .button2:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-    }
-    /* Button style for dslop end */
-
-    </style>
-
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Student Management System</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS CDN -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-
-    <!-- Font Awesome JS -->
-    <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
-    <script rel="stylesheet" src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    <title>Student Management System</title>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
+<body>
 
-<body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'homepage' %}">
-                <i class="fa-solid fa-school fa-lg me-2"></i>
-                Student Management
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
-                aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'homepage' %}">Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Thêm thành viên</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'themHS' %}">Thêm Học sinh</a>
-                            <a class="dropdown-item" href="#">Thêm Giáo viên</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Thêm Admin</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false">Tài khoản</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'dsTaiKhoanHS' %}">Danh sách Học sinh</a>
-                            <a class="dropdown-item" href="#">Danh sách Giáo viên</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Danh sách Admin</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Thông tin lớp học</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'dsLop' %}">Danh sách lớp</a>
-                            <a class="dropdown-item" href="{% url 'traCuuNamHoc' %}">Tra cứu HS</a>
-                        </div>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Điểm</a>
-                    </li> -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Điểm</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Bảng điểm</a>
-                            <a class="dropdown-item" href="#">Bảng tổng kết</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Quy định</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Tuổi</a>
-                            <a class="dropdown-item" href="#">Lớp</a>
-                            <a class="dropdown-item" href="#">Môn học</a>
-                        </div>
-                    </li>
-                    
-                </ul>
-                <form class="d-flex">
-                    <li class="nav-item dropdown">
-                        <a class="navbar-brand dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{% url 'userProfile' %}">Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="{% url 'capNhatTaiKhoan' %}">Cập nhật tài khoản</a>
-                            <a class="dropdown-item" href="{% url 'logout_user' %}">Đăng xuất</a>
-                        </div>
-                    </li>
-                    
-                    <!-- <input class="form-control me-sm-2" type="search" placeholder="Search"> -->
-                    <!--<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">
-                        <a class="dropdown-item" href="{% url 'logout_user' %}">Log out</a>
-                    </button>
-                </form>
+  <header class="header">
+    <div class="left-section">
+      <div class="navbar__toggle" id="sidebar">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <a class="header__logo" href="{% url 'homepage' %}">
+        <img src="{% static 'images/logo.png' %}">
+        <h1>PANPC</h1>
+      </a>
+    </div>
+    <div class="middle-section">
+      <!-- <input type="text" class="search-bar" placeholder="Search...">
+      <button class="search-button">
+        <img src="images/search.png" class="search-icon">
+        <div class="tooltip">Search</div>
+      </button> -->
+    </div>
+    <div class="right-section">
+      <div class="message-icon-container">
+        <img src="{% static 'images/message.png' %}" class="message-icon">
+        <div class="tooltip">Messenger</div>
+        <div class="message-count">3</div>
+      </div>
+      <div class="notification-icon-container">
+        <img src="{% static 'images/notification.png' %}" class="notification-icon">
+        <div class="tooltip">Notification</div>
+        <div class="notification-count">2</div>
+      </div>
+      <nav class="header-menu">
+        <div class="user-menu">
+          <a href="#">
+            <div class="avatar">
+              <img src="{% static 'images/user.png' %}">
             </div>
+            <button class="dropdown-button">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <title>chevron-down</title>
+                <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+              </svg>
+            </button>
+          </a>
         </div>
-    </nav>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="{% static 'images/edit.png' %}">
+            Chỉnh sửa
+          </a>
+          <a href="{% url 'logout_user' %}" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="{% static 'images/logout.png' %}">
+            Thoát
+          </a>
+        </div>
+      </nav>
 
-    <div class="container-fluid">
-        {% block content %}
-        {% endblock %}
+      <!-- <button class="login">
+        Đăng nhập
+      </button> -->
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </header>
+  <nav class="sidebar">
+    <header>
+      <img src="{% static 'images/user.png' %}">
+      <a href="{% url 'userProfile' %}">
+        <h1>{{ user.username }}</h1>
+      </a>
+    </header>
+    <a href="{% url 'homepage' %}" class="sidebar-link">
+      <img src="{% static 'images/home.png' %}">
+      Trang chủ
+    </a>
+    <a href="#" class="sidebar-link">   <!--DS giáo viên -->
+      <img src="{% static 'images/teacher.png' %}">
+      Giáo viên
+    </a>
+    <a href="{% url 'dsTaiKhoanHS' %}" class="sidebar-link">   <!--DS học sinh-->
+      <img src="{% static 'images/student.png' %}">
+      Học sinh
+    </a>
+    <a href="{% url 'dsLop' %}" class="sidebar-link">
+      <img src="{% static 'images/class.png' %}">
+      Lớp học
+    </a>
+    <a href="#" class="sidebar-link">   <!--Môn học-->
+      <img src="{% static 'images/book.png' %}">
+      Môn học
+    </a>
+    <a href="#" class="sidebar-link">
+      <img src="{% static 'images/book.png' %}">
+      Báo cáo tổng kết
+    </a>
+    <a href="" class="sidebar-link">
+      <img src="{% static 'images/settings.png' %}">
+      Cài đặt
+    </a>
+  </nav>
+
+  <main class="list-container">
+      {% block content %}
+
+      {% endblock %}
+  </main>
+  
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 
 </html>
