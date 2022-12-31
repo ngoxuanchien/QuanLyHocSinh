@@ -1,0 +1,134 @@
+{% extends 'studentManager/base.html' %}
+
+{% block content %}
+
+<section class="vh-100 gradient-custom">
+    <div class="container h-100">
+        <div class="row justify-content-center align-items-center h-100 ">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-4">Thêm học sinh</h3>
+                        <form method="POST" role="form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                    <div class="form-outline flex-fill mb-0">
+                                        {{form.username}}
+                                        <!-- <input type="date" name="dateOfBirth" class="form-control"> -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline flex-fill mb-0">
+                                        {{form.password}}
+                                        <!-- <input type="text" name="password" placeholder="Password..." class="form-control"> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                    <div class="form-outline flex-fill mb-0">
+                                        {{form.name}}
+                                        <!-- <input type="text" name="name" placeholder="Họ tên..." class="form-control"> -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <!-- 
+                                    <div class="form-outline datepicker w-100">
+                                        <input type="text" class="form-control form-control-lg" id="birthdayDate" />
+                                        <label for="birthdayDate" class="form-label">Birthday</label>
+                                    </div> -->
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            {{form.dateOfBirth}}
+                                            <!-- <input type="date" name="dateOfBirth" class="form-control"> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="mb-2 pb-1">Giới tính: </div>
+                                    <!-- 
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="femaleGender" value="Nữ" checked />
+                                        <label class="form-check-label" for="femaleGender">Female</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="maleGender" value="Nam" />
+                                        <label class="form-check-label" for="maleGender">Male</label>
+                                    </div> -->
+                                    {{form.sex}}
+                                    <!-- <select class="select form-control-md">
+                                        <option value="1" disabled>Choose option</option>
+                                        <option value="2">Nam</option>
+                                        <option value="3">Nữ</option>
+                                    </select>
+                                    <label class="form-label select-label">Choose option</label> -->
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-4 pb-2">
+                                    <div class="form-outline">
+                                        {{form.email}}
+                                        <!-- <input type="email" name="email" placeholder="Email..." class="form-control"> -->
+                                    </div>
+                                </div>
+                                <div class="mb-4 pb-2">
+                                    <div class="form-outline">
+                                        {{form.address}}
+                                        <!-- <input type="text" name="address" placeholder="Địa chỉ..." class="form-control"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            {% if messages %}
+                            <!-- Error message -->
+                            <div class="d-flex justify-content-center">
+                                {% for message in messages %}
+                                {% if message.tags == 'error' %}
+                                <div>{{ message }}</div>
+                                {% endif %}
+                                {% if message.tags == 'success' %}
+                                <div>{{ message }}</div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <!-- <div class="row">
+                                <div class="col-12">
+
+                                    <select class="select form-control-lg">
+                                        <option value="1" disabled>Choose option</option>
+                                        <option value="2">Subject 1</option>
+                                        <option value="3">Subject 2</option>
+                                        <option value="4">Subject 3</option>
+                                    </select>
+                                    <label class="form-label select-label">Choose option</label>
+
+                                </div>
+                            </div> -->
+
+                            <div class="d-flex justify-content-center align-items-center pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Thêm" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

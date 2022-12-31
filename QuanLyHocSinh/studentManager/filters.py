@@ -12,7 +12,7 @@ class ClassFilter(django_filters.FilterSet):
                 class_list.append(c)
                 year_list.append(c.year.year)
         class_choices = [(c.classID, c.classID) for c in set(class_list)]
-        classInSchool = ChoiceFilter(
+        classOfSchool = ChoiceFilter(
             label='',
             choices=class_choices,
             method='filter_by_class',
@@ -21,7 +21,7 @@ class ClassFilter(django_filters.FilterSet):
 
         year_choices = [(y, y) for y in set(year_list)]
 
-        year_list = ChoiceFilter(
+        year = ChoiceFilter(
             label='Niên khóa',
             choices=year_choices,
             method='filter_by_year',

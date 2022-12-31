@@ -14,6 +14,6 @@ Thêm 'get_user_details' ở cuối địa chỉ ip (đường link)
 4. Note của Phương: Do chưa tạo đủ database mà phần của Phương dựa vào nên
     4.1 Trong dslop.html, xóa example (đã chú thích) và unnote {class_filter.form. } khi cập nhật database
     student và age
-    4.2 Khi đã cập nhật user.role thì unnote phần đó và xóa example ngay bên dưới
+    4.2 Khi đã cập nhật user.role thì unnote phần đó và xóa example ngay bên dưới -- done
     4.3 Khi đã cập nhật các niên khóa, xóa example ở chonNamHoc.html và unnote code ngay bên dưới
 
