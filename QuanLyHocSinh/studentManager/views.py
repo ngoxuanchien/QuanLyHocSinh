@@ -12,6 +12,9 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
 
 def homepage(request):
     message = "This is temporary home page for our project"
@@ -204,6 +207,29 @@ def xoaTKHS(request, account_id):
     return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
 
 
+@login_required(login_url='login')
+def capNhatTaiKhoan(request):
+    if request.method == 'POST':
+        profile_form = updateCustomUserForm(request.POST, instance=request.user)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Cập nhật thành công')
+            return redirect(to='capNhatTaiKhoan')
+    else:
+        profile_form = updateCustomUserForm(instance=request.user)
+
+    return render(request, 'studentManager/capNhatTaiKhoan.html', {'profile_form': profile_form})
+
+
+class doiMatKhau(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'admin_template/capNhatMatKhau.html'
+    success_message = "Successfully Changed Your Password"
+    success_url = reverse_lazy('capNhatTaiKhoan')
+    
+    
+    
+    
+    
 semester = 2
 
 # @login_required(login_url = 'login')

@@ -13,6 +13,7 @@ urlpatterns = [
     path("danhsachtaikhoanHS/capnhat/<int:account_id>", views.capNhatTKHS, name='capNhatTKHS'),
     path("danhsachtaikhoanHS/delete/<int:account_id>", views.xoaTKHS, name='xoaTKHS'),
     
+    path('capnhattaikhoan/', views.capNhatTaiKhoan, name='capNhatTaiKhoan'),
     path('profile', views.userProfile, name = 'userProfile'),
     
     path('home/', views.homepage, name = "homepage"),
