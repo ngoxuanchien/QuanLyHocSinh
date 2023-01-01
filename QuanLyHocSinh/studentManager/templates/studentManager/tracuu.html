@@ -20,8 +20,7 @@
                     </div>
                     <div class="main_form_select col-lg-8">
                         <center>
-                        <!--{{marksFilter.form.name}}-->
-                        Trần Kiều Trang
+                        {{marksFilter.form.name}}
                         </center>
                     </div>
                 </div>
@@ -30,30 +29,13 @@
             <div class="main_form_term col-lg-2">
                 <div class="row">
                     <center>
-                    <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 20px; background-color: aquamarine; border-color:white">Tìm kiếm</button>                              
+                    <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 20px; background-color: aquamarine; border-color:white">
+                      Tìm kiếm
+                    </button>                              
                     </center>
                 </div>
             </div>
         </form>
-        
-
-    <!--<a class="add" href="formStudent.html">
-      <img src="images/add.png" height="20px">
-      <p>Thêm</p>
-    </a>-->
-  </header>
-  <!--<div class="list-year">
-    <label for="years_topic">Năm học:</label>
-    <select id="years_topic">
-      <option value="2020">2020</option>
-      <option value="2021">2021</option>
-      <option value="2022">2022-2022</option>
-    </select>
-    <label for="years_topic">Học kì:</label>
-    <select id="years_topic">
-      <option value="1">1</option>
-      <option value="2">2</option>
-    </select> -->
     <br>
   </div>
   <table class="table">
@@ -66,39 +48,18 @@
       <th></th>
 
     </tr>
-  <!--{% for student, classOfSchool, avg1, avg2 in marks %}
-  <tr>
+
+    
+  {% for student, classOfSchool, avg1, avg2 in marks %}
+  <tr class = "list">
       <td>{{ forloop.counter }}</td>
       <td>{{student.user.name}}</td>
-      <td>{{SchoolClass.classId}}</td>
+      <td>{{classOfSchool.classID}}</td>
       <td>{{avg1}}</td>
       <td>{{avg2}}</td>
   </tr>
-  {% endfor %}-->
+  {% endfor %}
 
-  <!--Examples-->
-  <tr class = "list">
-      <td>1</td>
-      <td>Trần Kiều Trang</td>
-      <td>10A1</td>
-      <td>9.2</td>
-      <td>8.9</td>
-  </tr>
-
-  <!--  <tr class="list">
-      <td><a href="#">1</a></td>
-      <td><a href="#">Ngô Xuân Chiến</a></td>
-      <td>10C1</td>
-      <td>8.8</td>
-      <td>8.8</td>
-      <td class="edit-delete">
-        <div>
-          <button class="edit">Sửa</button>
-          <button class="delete">Xoá</button>
-        </div>
-      </td>
-    </tr>-->
-    
   </tbody></table>
   <div class="pagenumber">
     <button class="previous" type="previous">
@@ -111,3 +72,4 @@
   </div>
 
 {% endblock content %}
+

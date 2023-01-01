@@ -292,8 +292,8 @@ def traCuuNamHoc(request):
 
 # @allowed_users(allowed_roles=['Admin', 'Teacher'])
 @login_required(login_url='login')
-def traCuu(request):  # ,pk):
-    '''year = Age.objects.get(id =pk)
+def traCuu(request  ,pk):
+    year = Age.objects.get(id =pk)
     marks = Mark.objects.filter(subject__year= year)
     marksFilter = StudentInMarkFilter(request.GET, queryset=marks)
     marks = marksFilter.qs.order_by('student__user__name')
@@ -325,6 +325,5 @@ def traCuu(request):  # ,pk):
     context = {
         'marks': marks,
         'marksFilter': marksFilter
-    }'''
-    context = {}
+    }
     return render(request, 'studentManager/traCuu.html', context)
