@@ -1,54 +1,113 @@
 {% extends 'studentManager/base.html' %}
 {% load static %}
 {% block content %}
-
-<h3 class="label">Tra cứu học sinh</h3>
+<h1 class="label"><center>Tra cứu học sinh</center></h1>
+<!--<header class="tacvu">
+   <div class="timkiem">
+      <input type="text" class="search-bar" placeholder="Tìm kiếm...">
+      {{marksFilter.form.name}}
+      <button type = "submit" class="search-button">
+        <img src= "{% static 'images/search.png' %}" class="search-icon">
+      </button>
+    </div>-->
     <div class="card card-body shadow-lg">
         <form method="get" class="main_form-header row">
             {% csrf_token %}
             <div class="main_form_class col-lg-4">
                 <div class="row">
                     <div class="main_form_title col-lg-2">
-                        <p>Tên</p>
+                        <h3><center>Tên</center></h3>
                     </div>
                     <div class="main_form_select col-lg-8">
+                        <center>
                         <!--{{marksFilter.form.name}}-->
                         Trần Kiều Trang
+                        </center>
                     </div>
                 </div>
             </div>
+            <br>
             <div class="main_form_term col-lg-2">
                 <div class="row">
-                    <button type="submit" class= "button button1">Tìm kiếm</button>                              
+                    <center>
+                    <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 20px; background-color: aquamarine; border-color:white">Tìm kiếm</button>                              
+                    </center>
                 </div>
             </div>
         </form>
+        
 
-        <table class="table table-sm">
-            <tr>
-                <th>STT</th>
-                <th>Họ Tên</th>
-                <th>Lớp</th>
-                <th>TB học kì 1</th>
-                <th>TB học kì 2</th>
-            </tr>
-            <!--{% for student, classOfSchool, avg1, avg2 in marks %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{student.user.name}}</td>
-                    <td>{{SchoolClass.classId}}</td>
-                    <td>{{avg1}}</td>
-                    <td>{{avg2}}</td>
-                </tr>
-            {% endfor %}-->
-            <!--Examples-->
-            <tr>
-                <td>1</td>
-                <td>Trần Kiều Trang</td>
-                <td>10A1</td>
-                <td>9.2</td>
-                <td>8.9</td>
-            </tr>
-        </table>
-    </div>   
+    <!--<a class="add" href="formStudent.html">
+      <img src="images/add.png" height="20px">
+      <p>Thêm</p>
+    </a>-->
+  </header>
+  <!--<div class="list-year">
+    <label for="years_topic">Năm học:</label>
+    <select id="years_topic">
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022-2022</option>
+    </select>
+    <label for="years_topic">Học kì:</label>
+    <select id="years_topic">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select> -->
+    <br>
+  </div>
+  <table class="table">
+    <tbody><tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Lớp</th>
+      <th>TB học kỳ 1</th>
+      <th>TB học kỳ 2</th>
+      <th></th>
+
+    </tr>
+  <!--{% for student, classOfSchool, avg1, avg2 in marks %}
+  <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{student.user.name}}</td>
+      <td>{{SchoolClass.classId}}</td>
+      <td>{{avg1}}</td>
+      <td>{{avg2}}</td>
+  </tr>
+  {% endfor %}-->
+
+  <!--Examples-->
+  <tr class = "list">
+      <td>1</td>
+      <td>Trần Kiều Trang</td>
+      <td>10A1</td>
+      <td>9.2</td>
+      <td>8.9</td>
+  </tr>
+
+  <!--  <tr class="list">
+      <td><a href="#">1</a></td>
+      <td><a href="#">Ngô Xuân Chiến</a></td>
+      <td>10C1</td>
+      <td>8.8</td>
+      <td>8.8</td>
+      <td class="edit-delete">
+        <div>
+          <button class="edit">Sửa</button>
+          <button class="delete">Xoá</button>
+        </div>
+      </td>
+    </tr>-->
+    
+  </tbody></table>
+  <div class="pagenumber">
+    <button class="previous" type="previous">
+      <img src="{% static 'images/previous.png' %}">
+    </button>
+    <p>1/1</p>
+    <button class="next" type="next">
+      <img src="{% static 'images/next.png' %}">
+    </button>
+  </div>
+
 {% endblock content %}

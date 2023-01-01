@@ -1,23 +1,26 @@
 {% extends 'studentManager/base.html' %}
 {% load static %}
 {% block content %}
-    <h3 class="label">Tra cứu niên khóa</h3>
+    <h1 class="label"><center>Tra cứu niên khóa</center></h1>
     <div class="card card-body shadow-lg">
         <div class="jus_center row">
             <div class='col-lg-6'>
                 {% csrf_token %}
-                <table class="table table-sm">
+                <table class="table">
                     <tr>
                         <th>STT</th>
                         <th>Niên khóa</th>
                         <th>Lựa chọn</th>
                     </tr>
                     <!--Example start-->
-                    <tr>
+                    <tr class = "list">
                         <td>1</td>
                         <td>2020 - 2021</td>
                         <td>
-                            <a href="{% url 'traCuu' %}" class="btn btn-primary">Chọn</a>
+                            <a href="{% url 'traCuu' %}" class="btn btn-primary">
+                                <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white">
+                                    Chọn
+                                </button></a>
                         </td>
                     </tr>
                     <!--Example end-->
