@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PANPC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="left-section">
+      <div class="navbar__toggle" id="sidebar">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <a class="header__logo" href="#home">
+        <img src="images/logo.png">
+        <h1>PANPC</h1>
+      </a>
+    </div>
+    <div class="middle-section">
+      <!-- <input type="text" class="search-bar" placeholder="Search...">
+      <button class="search-button">
+        <img src="images/search.png" class="search-icon">
+        <div class="tooltip">Search</div>
+      </button> -->
+    </div>
+    <div class="right-section">
+      <div class="message-icon-container">
+        <img src="images/message.png" class="message-icon">
+        <div class="tooltip">Messenger</div>
+        <div class="message-count">3</div>
+      </div>
+      <div class="notification-icon-container">
+        <img src="images/notification.png" class="notification-icon">
+        <div class="tooltip">Notification</div>
+        <div class="notification-count">2</div>
+      </div>
+      <nav class="header-menu">
+        <div class="user-menu">
+          <a href="#">
+            <div class="avatar">
+              <img src="images/user.png">
+            </div>
+            <button class="dropdown-button">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <title>chevron-down</title>
+                <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="images/edit.png">
+            Chỉnh sửa
+          </a>
+          <a href="#" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="images/logout.png">
+            Thoát
+          </a>
+        </div>
+      </nav>
+      
+      <!-- <button class="login">
+        Đăng nhập
+      </button> -->
+
+    </div>
+
+    
+  </header>
+  <nav class="sidebar">
+    <header>
+      <img src="images/user.png">
+      <a href="#">
+        <h1>Ngô Xuân Chiến</h1>
+      </a>
+    </header>
+    <a href="#home" class="sidebar-link">
+      <img src="images/home.png">
+      Trang chủ
+    </a>
+    <a href="teacher.html" class="sidebar-link">
+      <img src="images/teacher.png">
+      Giáo viên
+    </a>
+    <a href="#home" class="sidebar-link">
+      <img src="images/student.png">
+      Học sinh
+    </a>
+    <a href="#home" class="sidebar-link">
+      <img src="images/class.png">
+      Lớp học
+    </a>
+    <a href="#home" class="sidebar-link">
+      <img src="images/book.png">
+      Môn học
+    </a>
+    <a href="#home" class="sidebar-link">
+      <img src="images/settings.png">
+      Cài đặt
+    </a>
+  </nav>
+
+  <section>
+    <div class="login-container">
+      <div class="layout__box">
+        <div class="layout__boxHeader">
+          <div class="layout__boxTitle">
+            <h3>Đăng nhập</h3>
+          </div>
+        </div>
+        <div class="layout__body">
+          <form class="form" action="#">
+            <div class="form__group">
+              <label>Tên đăng nhập</label>
+              <input id="username" name="username" type="text" placeholder="Username" />
+            </div>
+            <div class="form__group">
+              <label for="password">Mật khẩu</label>
+              <input id="password" name="password" type="password"
+                placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" />
+            </div>
+    
+            <button class="login-button" type="submit">
+              <img width="20" height="20" viewBox="0 0 32 32" src="images/padlock.png">
+              Login
+            </button>
+          </form>
+    
+          <div>
+            <p>Tên đăng nhập hoặc mật khấu sai</p>
+            <a href="" class="">
+              <p>forgot your password?</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+  <script src="main.js"></script>
+
+</body>
+
+
+</html>

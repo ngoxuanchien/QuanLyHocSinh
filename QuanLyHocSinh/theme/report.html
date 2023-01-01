@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PANBC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="left-section">
+      <div class="navbar__toggle" id="sidebar">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <a class="header__logo" href="#home">
+        <img src="images/logo.png">
+        <h1>PANPC</h1>
+      </a>
+    </div>
+    <div class="middle-section">
+      <!-- <input type="text" class="search-bar" placeholder="Search...">
+        <button class="search-button">
+          <img src="images/search.png" class="search-icon">
+          <div class="tooltip">Search</div>
+        </button> -->
+    </div>
+    <div class="right-section">
+      <div class="message-icon-container">
+        <img src="images/message.png" class="message-icon">
+        <div class="tooltip">Messenger</div>
+        <div class="message-count">3</div>
+      </div>
+      <div class="notification-icon-container">
+        <img src="images/notification.png" class="notification-icon">
+        <div class="tooltip">Notification</div>
+        <div class="notification-count">2</div>
+      </div>
+      <nav class="header-menu">
+        <div class="user-menu">
+          <a href="#">
+            <div class="avatar">
+              <img src="images/user.png">
+            </div>
+            <button class="dropdown-button">
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
+                <title>chevron-down</title>
+                <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="images/edit.png">
+            Chỉnh sửa
+          </a>
+          <a href="index.html" class="dropdown-link">
+            <img width="20" height="20" viewBox="0 0 32 32" src="images/logout.png">
+            Thoát
+          </a>
+        </div>
+      </nav>
+  
+      <!-- <button class="login">
+          Đăng nhập
+        </button> -->
+  
+    </div>
+  
+  
+  </header>
+  <nav class="sidebar">
+    <header>
+      <img src="images/user.png">
+      <a href="#">
+        <h1>Ngô Xuân Chiến</h1>
+      </a>
+    </header>
+    <a href="#home" class="sidebar-link">
+      <img src="images/home.png">
+      Trang chủ
+    </a>
+    <a href="teacher.html" class="sidebar-link">
+      <img src="images/teacher.png">
+      Giáo viên
+    </a>
+    <a href="student.html" class="sidebar-link">
+      <img src="images/student.png">
+      Học sinh
+    </a>
+    <a href="class.html" class="sidebar-link">
+      <img src="images/class.png">
+      Lớp học
+    </a>
+    <a href="subject.html" class="sidebar-link">
+      <img src="images/book.png">
+      Môn học
+    </a>
+    <a href="report.html" class="sidebar-link">
+      <img src="images/report.png">
+      Báo cáo tổng kết
+    </a>
+    <a href="#home" class="sidebar-link">
+      <img src="images/settings.png">
+      Cài đặt
+    </a>
+  </nav>
+  
+  <main class="list-container">
+    <div class="main-report">
+      <div class="report-tab">
+        <div class="item-term">Báo cáo tổng kết học kì</div>
+        <div class="item-subject">Báo cáo tổng kết môn</div>
+      </div>
+      <div class="main-rp-sj">
+        <div class="list-year">
+          <label for="years_topic">Năm học:</label>
+          <select id="years_topic">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022-2022</option>
+          </select>
+          <label for="class_topic">Lớp</label>
+          <select id="class_topic">
+            <option value="10A1">10A1</option>
+            <option value="10A2">10A2</option>
+            <option value="10A3">10A3</option>
+            <option value="11A1">11A1</option>
+            <option value="11A2">11A2</option>
+            <option value="11A3">11A3</option>
+            <option value="12A1">12A1</option>
+            <option value="12A2">12A2</option>
+            <option value="12A3">12A3</option>
+          </select>
+          <label for="subject_topic">Môn:</label>
+          <select id="subject_topic">
+            <option value="Toán">Toán</option>
+            <option value="Lý">Lý</option>
+            <option value="Hoá">Hoá</option>
+            <option value="Sinh">Sinh</option>
+            <option value="Sử">Sử</option>
+            <option value="Địa">Địa</option>
+            <option value="Văn">Văn</option>
+            <option value="Đạo đức">Đạo đức</option>
+            <option value="Thể dục">Thể dục</option>
+          </select>
+          <label for="term_topic">Học kì:</label>
+          <select id="term_topic">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <table class="table">
+          <tr>
+            <th>STT</th>
+            <th>Lớp</th>
+            <th>Sỉ số</th>
+            <th>Số lượng Đạt</th>
+            <th>Tỷ lệ</th>
+        
+          </tr>
+          <tr class="list">
+            <td><a href="#">1</a></td>
+            <td><a href="#">Nguyễn Văn A</a></td>
+            <td>10</td>
+            <td>8.8</td>
+            <td>8.8</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="main-rp-term">
+        <div class="list-year">
+          <label for="years_topic">Năm học:</label>
+          <select id="years_topic">
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022-2022</option>
+          </select>
+          <label for="term_topic">Học kì:</label>
+          <select id="term_topic">
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+        <table class="table">
+          <tr>
+            <th>STT</th>
+            <th>Lớp</th>
+            <th>Sỉ số</th>
+            <th>Số lượng Đạt</th>
+            <th>Tỷ lệ</th>
+        
+          </tr>
+          <tr class="list">
+            <td><a href="#">1</a></td>
+            <td><a href="#">10A1</a></td>
+            <td>40</td>
+            <td>39</td>
+            <td>9.9</td>
+          </tr>
+        </table>
+      </div>
+      <div class="btn-save">
+        <div action="">
+          <img src="images/save.png">
+          Lưu
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
