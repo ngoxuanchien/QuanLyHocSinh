@@ -229,7 +229,6 @@ class doiMatKhau(SuccessMessageMixin, PasswordChangeView):
     
     
     
-    
 semester = 2
 @login_required(login_url = 'loginpage')
 def dsLop(request):
@@ -237,9 +236,11 @@ def dsLop(request):
     class_filter = ClassFilter(request.GET, queryset=students)
     students = class_filter.qs.order_by('user__name')
     format_date = [s.user.dateOfBirth.strftime("%d-%m-%y") for s in students]
+    n_students = students.count()
     context = {
         'students': zip(students, format_date),
         'class_filter': class_filter,
+        'n_students': n_students,
     }
     return render(request, 'studentManager/dslop.html', context)
 

@@ -4,10 +4,10 @@
 {% block content %}
 <header class="tacvu">
   <div class="timkiem">
-    <input type="text" class="search-bar" placeholder="Tìm kiếm...">
+    <!-- <input type="text" class="search-bar" placeholder="Tìm kiếm...">
     <button class="search-button">
       <img src="{% static 'images/search.png' %}" class="search-icon">
-    </button>
+    </button> -->
   </div>
   <a class="add" href="{% url 'chonNamHoc' %}">
     <img src="{% static 'images/add.png' %}" height="20px">
@@ -20,7 +20,7 @@
     {{class_filter.form.year}}
   <label for="class_topic">Lớp</label>
   {{class_filter.form.classOfSchool}}
-  <label>Sỉ số: </label>  <!--Tính sỉ số-->
+  <label>Sỉ số: {{n_students}}</label>  <!--Tính sỉ số-->
 </div>
 <table class="table"> <!--Làm sao cho mỗi row to ra 1 tí :))))-->
   <tr>
