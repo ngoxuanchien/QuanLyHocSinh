@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="sidebar">
+  <header>
+    <img src="{% static 'images/user.png' %}">
+    <a href="#">
+      <h1>{{request.user}}</h1>
+    </a>
+  </header>
+  <a href="#home" class="sidebar-link">
+    <img src="{% static 'images/home.png' %}">
+    Trang chủ
+  </a>
+  <a href="teacher.html" class="sidebar-link">
+    <img src="{% static 'images/teacher.png' %}">
+    Giáo viên
+  </a>
+  <a href="{% url 'list_student' %}" class="sidebar-link">
+    <img src="{% static 'images/student.png' %}">
+    Học sinh
+  </a>
+  <a href="{% url 'list_class' %}" class="sidebar-link">
+    <img src="{% static 'images/class.png' %}">
+    Lớp học
+  </a>
+  <a href="{% url 'list_subject' %}" class="sidebar-link">
+    <img src="{% static 'images/report.png' %}">
+    Môn học
+  </a>
+  <a href="subject.html" class="sidebar-link">
+    <img src="{% static 'images/book.png' %}">
+    Báo cáo tổng kết
+  </a>
+  <a href="#home" class="sidebar-link">
+    <img src="{% static 'images/settings.png' %}">
+    Cài đặt
+  </a>
+</nav>

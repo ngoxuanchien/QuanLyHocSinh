@@ -1,0 +1,70 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<main class="list-container">
+  <header class="tacvu">
+    <form class="timkiem" action="{% url 'list_student' %}" method="GET" action="">
+      {% csrf_token %}
+      <input name="q" class="search-bar" placeholder="Tìm kiếm...">
+      <button class="search-button">
+        <img src="{% static 'images/search.png' %}" class="search-icon">
+      </button>
+    </form>
+    <a class="add" href="{% url 'addStudent' %}">
+      <img src="{% static 'images/add.png' %}" height="20px">
+      <p>Thêm</p>
+    </a>
+  </header>
+  <form class="list-year" action="" method="GET">
+    {% csrf_token %}
+    <label for="years_topic">Năm học:</label>
+    <div id="years_topic" name="year">
+      {{classFilter.form.year}}
+    </div>
+    <button class="result-btn" name="rq_result">Xem kết quả</button>
+    <!-- <label for="years_topic">Học kì:</label>
+      <select id="years_topic">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select> -->
+  </form>
+  <table class="table">
+    <tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Lớp</th>
+      <th>TB học kỳ 1</th>
+      <th>TB học kỳ 2</th>
+      <th>Action</th>
+    </tr>
+    {% for stt, student, avg1, avg2 in students %}
+    <tr class="list">
+      <td><a href="#">{{stt}}</a></td>
+      <td><a href="#">{{student.name}}</a></td>
+      <td>{{student.classOfSchool.classId}}</td>
+      <td>{{avg1}}</td>
+      <td>{{avg2}}</td>
+      <td class="edit-delete">
+        <div>
+          <!-- {% csrf_token %} -->
+          <button class="edit"><a href="{% url 'student_form' student.id %}">Sửa</a></button>
+          <button class="delete"><a href="{% url 'deleteStudent' student.id %}" onclick="return confirm('Xác nhận xóa tài khoản này ?')">Xoá</a></button>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+
+  </table>
+  <div class="pagenumber">
+    <button class="previous" type="previous">
+      <img src="{% static 'images/previous.png' %}">
+    </button>
+    <p>1/1</p>
+    <button class="next" type="next">
+      <img src="{% static 'images/next.png' %}">
+    </button>
+  </div>
+</main>
+
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+  <div class="list-container">
+    <header class="tacvu">
+      <form class="timkiem" action="{% url 'list_subject' %}" method="GET" action="">
+        {% csrf_token %}
+        <input name="q" class="search-bar" placeholder="Tìm kiếm...">
+        <button class="search-button">
+          <img src="{% static 'images/search.png' %}" class="search-icon">
+        </button>
+      </form>
+      <a class="add" href="{% url 'addMark' %}">
+        <img src="{% static 'images/add.png' %}" height="20px">
+        <p>Thêm</p>
+      </a>
+    </header>
+    <form class="list-year" method="GET" action="">
+      {%csrf_token %}
+      <!-- {{markFilter.form}} -->
+      <!-- <label for="years_topic">Năm học:</label> -->
+      <!-- {{markFilter.form.year}} -->
+      <label for="subject_topic">Môn:</label>
+      {{markFilter.form.subjects}}
+      <label for="class_topic">Lớp</label>
+      {{markFilter.form.classOfSchool}}
+      <label for="term_topic">Học kì:</label>
+      {{markFilter.form.semester_mark}}
+      <button class="result-btn" name="rq_result">Xem kết quả</button>
+    </form>
+    <table class="table">
+      <tr>
+        <th>STT</th>
+        <th>Họ tên</th>
+        <th>Điểm 15'</th>
+        <th>Điểm 1 tiết</th>
+        <th>Điểm cuối HK</th>
+        <th></th>
+
+      </tr>
+      {% for stt, mark in marks %}
+      <tr class="list">
+        <td><a href="#">{{stt}}</a></td>
+        <td><a href="#">{{mark.student}}</a></td>
+        <td>{{mark.markFifteen}}</td>
+        <td>{{mark.markOne}}</td>
+        <td>{{mark.markFinal}}</td>
+        <td class="edit-delete">
+          <div>
+            <button class="edit"><a href="{% url 'updateMark' mark.id %}">Sửa</a></button>
+            <button class="delete"><a href="{% url 'deleteMark' mark.id %}" onclick="return confirm('Xác nhận xóa tài khoản này ?')">Xoá</a></button>
+            <!-- <button class="report">Lập báo cáo</button> -->
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <div class="pagenumber">
+      <button class="previous" type="previous">
+        <img src="{% static 'images/previous.png' %}">
+      </button>
+      <p>1/1</p>
+      <button class="next" type="next">
+        <img src="{% static 'images/next.png' %}">
+      </button>
+    </div>
+  </div>
+
+{% endblock content %}
