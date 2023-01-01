@@ -12,28 +12,16 @@
                         <th>Niên khóa</th>
                         <th>Lựa chọn</th>
                     </tr>
-                    <!--Example start-->
-                    <tr class = "list">
-                        <td>1</td>
-                        <td>2020 - 2021</td>
-                        <td>
-                            <a href="{% url 'traCuu' %}" class="btn btn-primary">
-                                <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white">
-                                    Chọn
-                                </button></a>
-                        </td>
-                    </tr>
-                    <!--Example end-->
-                    <!--Nhớ unnote khi tạo đủ database-->
-                    <!--{% for y in age %}
-                        <tr>
+                    {% for y in age %}
+                        <tr class = "list">
                             <td>{{ forloop.counter }}</td>
                             <td>{{y.year}}</td>
                             <td>
-                                <a href="{% url 'traCuu' y.id %}" class="btn btn-primary">Chọn</a>
+                                <a href="{% url 'traCuu' y.id %}" class="btn btn-primary">
+                                    <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white">Chọn</a>
                             </td>
                         </tr>
-                    {% endfor %}-->
+                    {% endfor %}
                 </table>
             </div>
         </div>
