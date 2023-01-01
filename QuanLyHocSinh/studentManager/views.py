@@ -100,51 +100,10 @@ def themHS(request):
     return render(request, 'studentManager/themHS.html', context=context)
 
 
-def themHS_save(request):
-    if request.method != "POST":
-        return HttpResponse("Method Not Allowed")
-    else:
-
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-        name = request.POST.get("name")
-        dob = request.POST.get("dateOfBirth")
-        sex = request.POST.get("sex")
-        email = request.POST.get("email")
-        address = request.POST.get("address")
-        try:
-                print('in-----------------------')
-                print(username, name)
-                try:
-                    user = CustomUser.objects._create_user(
-                        username=username, password=password, name=name,
-                        dateOfBirth=datetime.strptime(dob, '%Y-%m-%d'),
-                        # sex=sex,
-                        role='3',  email=email, address=address)
-                except:
-                    messages.error(request, 'Thêm thất bại 0')
-                    return HttpResponseRedirect("/themHS")
-
-                user.save()
-                student = Student(user=user)
-                print(student)
-                student.save()
-                messages.success(request, 'Thêm thành công')
-                return HttpResponseRedirect("/themHS")
-        except:
-            print('in-Thêm thất bại----------------------')
-            print(username, name)
-            messages.error(request, 'Thêm thất bại')
-            return HttpResponseRedirect("/themHS")
-
-    context = {}
-    return render(request, 'studentManager/themHS.html', context)
-
 
 def userProfile(request):
     context = {}
     return render(request, 'studentManager/userProfile.html', context)
-
 
 # @allowed_users(allowed_roles=['Admin'])
 def dsTaiKhoanHS(request):

@@ -100,7 +100,7 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    classOfSchool = models.ManyToManyField(SchoolClass,blank =True)
+    #classOfSchool = models.ManyToManyField(SchoolClass,blank =True)
     subject = models.ForeignKey(Subject,blank =True, on_delete=models.CASCADE)
 
     def __str__(self):

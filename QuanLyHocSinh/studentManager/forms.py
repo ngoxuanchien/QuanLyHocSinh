@@ -72,14 +72,13 @@ class TeacherForm(CustomUserForm):
     def __init__(self, *args, **kwargs):
         super(TeacherForm, self).__init__(*args, **kwargs)
         self.fields['subject'].required = False
-        self.fields['classOfSchool'].required = False
-        self.fields['subject'].widget.attrs.update({'class': 'form-select'})
-        self.fields['classOfSchool'].widget.attrs.update(
-            {'class': 'form-select'})
+        #self.fields['classOfSchool'].required = False
+        #self.fields['subject'].widget.attrs.update({'class': 'form-select'})
+        #self.fields['classOfSchool'].widget.attrs.update(            {'class': 'form-select'})
 
     class Meta:
         model = Teacher
-        fields = CustomUserForm.Meta.fields + ['subject', 'classOfSchool']
+        fields = CustomUserForm.Meta.fields + ['subject']
 
 
 class StudentForm(CustomUserForm):
