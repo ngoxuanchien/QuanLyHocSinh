@@ -10,7 +10,7 @@
         <div class="jus_center row">
             <div class='col-lg-6'>
                 {% csrf_token %}
-                <table class="table table-sm">
+                <table class="table">
                     <tr>
                         <th>STT</th>
                         <th>Niên khóa</th>
@@ -28,11 +28,11 @@
                     <!--Example end-->
                     
                     {% for y in age %}
-                        <tr>
+                        <tr class ="list">
                             <td>{{ forloop.counter }}</td>
                             <td>{{y.year}}</td>
                             <td>
-                                <a href="{% url 'lapDSLop' y.id %}" class="btn btn-primary">Chọn</a>
+                                <a href="{% url 'lapDS' y.id %}" class="btn btn-primary">Chọn</a>
                             </td>
                         </tr>
                     {% endfor %}

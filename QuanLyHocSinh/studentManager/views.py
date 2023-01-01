@@ -218,11 +218,11 @@ def chonNamHoc(request):
 
 @login_required(login_url='loginpage')
 def lapDSLop(request, pk):
-    year = Age.objects.get(id=pk)
+    this_year = Age.objects.get(id = pk)
     student_list1 = []
     for student in Student.objects.all():
-        for c in student.obj.all():
-            if c.year == year:
+        for c in student.classOfSchool.all():
+            if c.year == this_year:
                 student_list1.append(student)
                 break
     student_list2 = []
@@ -230,7 +230,7 @@ def lapDSLop(request, pk):
         if student not in student_list1:
             student_list2.append(student)
     formatDate = [a.user.dateOfBirth.strftime("%d-%m-%y") for a in student_list2]
-    form = lapDSForm(request.POST, age_id=pk)
+    form = lapDSForm(request.POST, pk = pk)
     if request.method == 'POST':
         usernames = request.POST.getlist('username_class')
         class_id = request.POST.get('classID')
@@ -255,7 +255,7 @@ def lapDSLop(request, pk):
                                 mark.markFinal = 0
                                 mark.save()
                     messages.success(request, "Thêm thành công")
-                    return redirect(reverse('lapDSLop', kwargs={'age_id': pk}))
+                    return redirect(reverse('lapDS', kwargs={'pk': pk}))
                 else:
                     messages.success(
                         request, "Số lượng học sinh vượt quá qui định")
@@ -263,7 +263,7 @@ def lapDSLop(request, pk):
         'students': zip(student_list2, formatDate),
         'form': form,
     }
-    return render(request, 'admin_template/lapDS.html', context=context)
+    return render(request, 'studentManager/lapDS.html', context=context)
 
 
 

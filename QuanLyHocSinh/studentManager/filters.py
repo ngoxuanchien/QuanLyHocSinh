@@ -38,7 +38,7 @@ class ClassFilter(django_filters.FilterSet):
         return queryset.filter(classOfSchool__classID = value)
 
     def filter_by_year(self, queryset, name, value):
-        return queryset.filter(classOfSchool__year = Age.objects.get(year_list = value))
+        return queryset.filter(classOfSchool__year = Age.objects.get(year = value))
 
 class MarkFilter(django_filters.FilterSet):
     try:
