@@ -187,8 +187,9 @@ def capNhatTKHS(request, account_id):
                 user.address = address
                 user.save()
                 messages.success(request, "Cập nhật thành công")
-                #return redirect(to='dsTaiKhoanHS')
-                return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
+                return render(request, "studentManager/capNhatHS.html", context)
+                # return redirect(to='dsTaiKhoanHS')
+                # return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
             except:
                 messages.error(request, "Không thể Không thể cập nhật")
         else:
