@@ -24,6 +24,7 @@
                 <th>Địa chỉ</th>
                 <th></th>
             </tr>
+            {% if form.classID is not null %}
                 {% for student,date in students %}
                 <tr class = "list">
                     <td>{{ forloop.counter }}</td>
@@ -43,6 +44,7 @@
                     </div>
                 </tr>
                 {% endfor %}
+            {% endif %}
             
         </table>
         <div class="main_form_term col-lg-6">
