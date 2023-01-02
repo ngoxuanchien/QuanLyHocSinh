@@ -142,7 +142,6 @@ def capNhatTKHS(request, account_id):
                 user.dateOfBirth = dateOfBirth
                 user.sex = sex
                 user.email = email
-
                 user.address = address
                 user.save()
                 messages.success(request, "Cập nhật thành công")
@@ -150,12 +149,15 @@ def capNhatTKHS(request, account_id):
                 # return redirect(to='dsTaiKhoanHS')
                 # return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
             except:
-                messages.error(request, "Không thể Không thể cập nhật")
+                messages.error(request, "Không thể cập nhật")
+                return render(request, "studentManager/dsTaiKhoanHS.html", context)
         else:
             messages.error(request, "Dữ liệu không phù hợp")
+            #return HttpResponseRedirect(reverse('capNhatTKHS'))
+            #return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
+            return render(request, "studentManager/capNhatHS.html", context)
     else:
         return render(request, "studentManager/capNhatHS.html", context)
-
 
 # @allowed_users(allowed_roles=['Admin'])
 def xoaTKHS(request, account_id):
