@@ -194,8 +194,8 @@ class lapDSForm(ModelForm):
         super(lapDSForm,self).__init__(*args,**kwargs)
         age = Age.objects.get(id = self.pk)
         class_choices = set([(c.classID, c.classID) for c in SchoolClass.objects.filter(year = age)])
-        self.fields['classId'].label = ''
-        self.fields['classId'].widget = Select(
+        self.fields['classID'].label = ''
+        self.fields['classID'].widget = Select(
             choices=class_choices, 
             attrs={'class': 'form-select'}
         )

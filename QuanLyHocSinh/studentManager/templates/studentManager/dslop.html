@@ -4,10 +4,6 @@
 {% block content %}
 <header class="tacvu">
   <div class="timkiem">
-    <!-- <input type="text" class="search-bar" placeholder="Tìm kiếm...">
-    <button class="search-button">
-      <img src="{% static 'images/search.png' %}" class="search-icon">
-    </button> -->
   </div>
   <a class="add" href="{% url 'chonNamHoc' %}">
     <img src="{% static 'images/add.png' %}" height="20px">
@@ -15,14 +11,17 @@
   </a>
 </header>
 
-<div class="list-year">
+<form class="list-year" action="" method="GET">
+  {%csrf_token %}
   <label for="years_topic">Năm học:</label>
     {{class_filter.form.year}}
   <label for="class_topic">Lớp</label>
-  {{class_filter.form.classOfSchool}}
-  <label>Sỉ số: {{n_students}}</label>  <!--Tính sỉ số-->
-</div>
-<table class="table"> <!--Làm sao cho mỗi row to ra 1 tí :))))-->
+    {{class_filter.form.classOfSchool}}
+  <label>Sỉ số: {{n_students}}</label>
+  <button class="result-btn" name="rq_result">Xem kết quả</button>
+</form>
+
+<table class="table"> 
   <tr>
     <th>STT</th>
     <th>Họ tên</th>
