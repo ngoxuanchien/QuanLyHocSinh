@@ -22,11 +22,11 @@
                             <td>{{ forloop.counter }}</td>
                             <td>{{y.year}}</td>
                             <td>
-                                <header class ="tacvu">
-                                    <a class="add" href="{% url 'lapDS' y.id %}">
-                                        <p>Chọn</p>
-                                    </a>
-                                </header>
+                                <a href="{% url 'lapDS' y.id %}" class="btn btn-primary">
+                                    <button type="submit" class= "button button1" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white">
+                                        Chọn
+                                    </button>    
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}

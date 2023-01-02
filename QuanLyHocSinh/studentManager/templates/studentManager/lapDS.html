@@ -1,23 +1,19 @@
 {% extends 'studentManager/base.html' %}
 {% load static %}
 
+
 {% block content %}
-    <h3 class="label">Lập danh sách lớp</h3>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="main_form-header row">
-            <div class="main_form_class col-lg-3">
-                <div class="row">
-                    <div class="main_form_title col-lg-3">
-                        <p>Lớp</p>
-                    </div>
-                    <div class="main_form_select col-lg-6">
-                        {{form.classID}}
-                    </div>
+<form method="POST">
+    {% csrf_token %}
+    <div class="main_form-header row">
+        <div class="main_form_class col-lg-3">
+            <div class="row">
+                <div class="main_form_title col-lg-3">
+                    <p>Lớp    {{form.classID}}</p>
                 </div>
-            </div> 
-        </div>
-        
+            </div>
+        </div> 
+    </div>
         <table class="table">
             <tr>
                 <th>STT</th>
@@ -52,14 +48,19 @@
         <div class="main_form_term col-lg-6">
             <div class="row">  
                 <div class="col-lg-5">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <button type="submit" class="btn btn-primary" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white;">
                         Thêm học sinh
                     </button>
-                </div>
-                <div class="col-lg-5">
-                    <a href="{% url 'dsLop' %}" class="btn btn-primary" style="width: 100%;">Trở về</a>
+                    <a class="btn btn-cancel text-center" href="{% url 'dsLop' %}">Trở về</a>
                 </div>  
             </div>                
         </div>
-    </div>
+    </form>
+    {% if messages %}
+        <div class="d-flex justify-content-center">
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock content %}
