@@ -16,6 +16,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 
+
 def homepage(request):
     message = "This is temporary home page for our project"
     context = {'message': message}
@@ -100,12 +101,13 @@ def themHS(request):
     return render(request, 'studentManager/themHS.html', context=context)
 
 
-
 def userProfile(request):
     context = {}
     return render(request, 'studentManager/userProfile.html', context)
 
 # @allowed_users(allowed_roles=['Admin'])
+
+
 def dsTaiKhoanHS(request):
     accountsStudent = Student.objects.all().order_by('user__name')
     formatDate = [a.user.dateOfBirth.strftime(
@@ -153,26 +155,29 @@ def capNhatTKHS(request, account_id):
                 return render(request, "studentManager/dsTaiKhoanHS.html", context)
         else:
             messages.error(request, "Dữ liệu không phù hợp")
-            #return HttpResponseRedirect(reverse('capNhatTKHS'))
-            #return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
+            # return HttpResponseRedirect(reverse('capNhatTKHS'))
+            # return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
             return render(request, "studentManager/capNhatHS.html", context)
     else:
         return render(request, "studentManager/capNhatHS.html", context)
 
 # @allowed_users(allowed_roles=['Admin'])
+
+
 def xoaTKHS(request, account_id):
     account = get_object_or_404(Student, id=account_id)
     user = CustomUser.objects.filter(username=account.user.username)
     user.delete()
     messages.success(request, "Xóa thành công !")
-    #return redirect(reverse('dsTaiKhoanHS'))
+    # return redirect(reverse('dsTaiKhoanHS'))
     return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
 
 
 @login_required(login_url='login')
 def capNhatTaiKhoan(request):
     if request.method == 'POST':
-        profile_form = updateCustomUserForm(request.POST, instance=request.user)
+        profile_form = updateCustomUserForm(
+            request.POST, instance=request.user)
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, 'Cập nhật thành công')
@@ -180,7 +185,7 @@ def capNhatTaiKhoan(request):
     else:
         profile_form = updateCustomUserForm(instance=request.user)
         return redirect(to='capNhatTaiKhoan')
-    #return render(request, 'studentManager/capNhatTaiKhoan.html', {'profile_form': profile_form})
+    # return render(request, 'studentManager/capNhatTaiKhoan.html', {'profile_form': profile_form})
     redirect(to='capNhatTaiKhoan')
 
 
@@ -188,12 +193,12 @@ class doiMatKhau(SuccessMessageMixin, PasswordChangeView):
     template_name = 'admin_template/capNhatMatKhau.html'
     success_message = "Successfully Changed Your Password"
     success_url = reverse_lazy('capNhatTaiKhoan')
-    
-    
-    
-    
+
+
 semester = 2
-@login_required(login_url = 'loginpage')
+
+
+@login_required(login_url='loginpage')
 def dsLop(request):
     students = Student.objects.all()
     class_filter = ClassFilter(request.GET, queryset=students)
@@ -221,7 +226,7 @@ def chonNamHoc(request):
 
 @login_required(login_url='loginpage')
 def lapDSLop(request, pk):
-    this_year = Age.objects.get(id = pk)
+    this_year = Age.objects.get(id=pk)
     student_list1 = []
     for student in Student.objects.all():
         for c in student.classOfSchool.all():
@@ -232,8 +237,9 @@ def lapDSLop(request, pk):
     for student in Student.objects.all():
         if student not in student_list1:
             student_list2.append(student)
-    formatDate = [a.user.dateOfBirth.strftime("%d-%m-%y") for a in student_list2]
-    form = lapDSForm(request.POST, pk = pk)
+    formatDate = [a.user.dateOfBirth.strftime(
+        "%d-%m-%y") for a in student_list2]
+    form = lapDSForm(request.POST, pk=pk)
     if request.method == 'POST':
         usernames = request.POST.getlist('username_class')
         class_id = request.POST.get('classID')
@@ -269,7 +275,6 @@ def lapDSLop(request, pk):
     return render(request, 'studentManager/lapDS.html', context=context)
 
 
-
 def trungBinhMon(subject, student):
     for mark in Mark.objects.filter(student=student).filter(subject=subject):
         if mark.semester_mark == '1':
@@ -295,9 +300,9 @@ def traCuuNamHoc(request):
 
 # @allowed_users(allowed_roles=['Admin', 'Teacher'])
 @login_required(login_url='login')
-def traCuu(request  ,pk):
-    year = Age.objects.get(id =pk)
-    marks = Mark.objects.filter(subject__year= year)
+def traCuu(request, pk):
+    year = Age.objects.get(id=pk)
+    marks = Mark.objects.filter(subject__year=year)
     marksFilter = StudentInMarkFilter(request.GET, queryset=marks)
     marks = marksFilter.qs.order_by('student__user__name')
     students = []
@@ -311,10 +316,10 @@ def traCuu(request  ,pk):
         students.append(student)
         subjects_in_year = set([mark.subject for mark in marks_in_year])
         m = [trungBinhMon(subject, student) for subject in subjects_in_year]
-        s1 =0
+        s1 = 0
         s2 = 0
         for i in m:
-            s1+= i[0]
+            s1 += i[0]
             s2 += i[1]
         avgMarks1.append(s1/len(m))
         avgMarks2.append(s2/len(m))
@@ -324,7 +329,7 @@ def traCuu(request  ,pk):
                 break
 
     marks = zip(students, classOfSchool, avgMarks1, avgMarks2)
-    
+
     context = {
         'marks': marks,
         'marksFilter': marksFilter

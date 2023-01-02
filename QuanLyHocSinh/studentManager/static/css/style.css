@@ -687,8 +687,8 @@ section {
 }
 
 
-.wrapper .form .input_field .textarea,
-.wrapper .form .input_field .input {
+.wrapper .form .input_field textarea,
+.wrapper .form .input_field input {
   width: 100%;
   outline: none;
   border: 1px solid #d5dbd9;
@@ -698,7 +698,7 @@ section {
   transition: all 0.3s ease;
 }
 
-.wrapper .form .input_field .textarea {
+.wrapper .form .input_field textarea {
   resize: none;
   height: 125px;
 }
@@ -748,6 +748,7 @@ section {
   outline: none;
   margin-top: 10px;
   margin-right: 10px;
+  text-align: center;
 }
 
 .wrapper .form .input_field .btn-save-st {
