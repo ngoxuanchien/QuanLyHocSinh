@@ -32,7 +32,7 @@ class CustomUserForm(forms.ModelForm):
             attrs={'class': 'form-select', 'id': 'sex_user'
                    }))
 
-        email = forms.CharField(label="", required=False, widget=forms.TextInput(
+        email = forms.CharField(label="", widget=forms.TextInput(
             attrs={'type': 'email', 'id': 'email_user', 'class': 'form-control', 'placeholder': 'Email...'
                    }))
 
@@ -42,7 +42,6 @@ class CustomUserForm(forms.ModelForm):
                    }))
         address.required = False
         
-        email.required = False
     except:
         ''''''
     # def __init__(self, *args, **kwargs):
@@ -134,7 +133,7 @@ class updateCustomUserForm(forms.ModelForm):
                    }))
 
         address.required = False
-        email.required = False
+        email.required = True
     except:
         ''''''
     class Meta:

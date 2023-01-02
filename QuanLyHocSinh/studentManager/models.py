@@ -45,12 +45,16 @@ class CustomUser(AbstractUser):
     dateOfBirth = models.DateField(default=now)
     sex = models.CharField(default='1', choices=SEX_CATELOGY,max_length=1)
     phone = models.CharField(default='', max_length=20, blank=True)
-    email = models.EmailField(default='', blank=True)
+    email = models.EmailField(max_length=200, unique=True)
     address = models.TextField(default='', blank=True)
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
-
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['username', 'email'], name="unique_user")
+        ]
     def __str__(self):
         return self.username 
 

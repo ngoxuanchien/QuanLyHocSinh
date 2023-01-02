@@ -51,12 +51,6 @@
                         
                     </div>
                     <div class="input_field">
-                        <label>Địa chỉ</label>
-                        <div class="input" type="text">
-                            {{form.address}}
-                        </div>
-                    </div>
-                    <div class="input_field">
                         <label>Email</label>
                         <!-- {{form.username}} -->
                         <!-- <input type="text" class="input" name="name"> -->
@@ -65,6 +59,13 @@
                         </div>
                     </div>
                     <div class="input_field">
+                        <label>Địa chỉ</label>
+                        <div class="input" type="text">
+                            {{form.address}}
+                        </div>
+                    </div>
+                    
+                    <div class="input_field">
                         <a class="btn  btn-cancel text-center" href="{% url 'dsTaiKhoanHS' %}">Trở về</a>
                         <button class="btn-save-st" type="submit">Lưu</button>
                     </div>
@@ -72,10 +73,7 @@
                     <!-- Error message -->
                     <div class="d-flex justify-content-center">
                         {% for message in messages %}
-                        {% if message.tags == 'error' %}
-                        <div>{{ message }}</div>
-                        {% endif %}
-                        {% if message.tags == 'success' %}
+                        {% if message.tags == 'error' or message.tags == 'success' %}
                         <div>{{ message }}</div>
                         {% endif %}
                         {% endfor %}

@@ -161,7 +161,7 @@ def capNhatTKHS(request, account_id):
 def xoaTKHS(request, account_id):
     account = get_object_or_404(Student, id=account_id)
     user = CustomUser.objects.filter(username=account.user.username)
-    user.delete()    
+    user.delete()
     messages.success(request, "Xóa thành công !")
     #return redirect(reverse('dsTaiKhoanHS'))
     return HttpResponseRedirect(reverse('dsTaiKhoanHS'))
@@ -177,8 +177,9 @@ def capNhatTaiKhoan(request):
             return redirect(to='capNhatTaiKhoan')
     else:
         profile_form = updateCustomUserForm(instance=request.user)
-
-    return render(request, 'studentManager/capNhatTaiKhoan.html', {'profile_form': profile_form})
+        return redirect(to='capNhatTaiKhoan')
+    #return render(request, 'studentManager/capNhatTaiKhoan.html', {'profile_form': profile_form})
+    redirect(to='capNhatTaiKhoan')
 
 
 class doiMatKhau(SuccessMessageMixin, PasswordChangeView):

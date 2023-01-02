@@ -6,7 +6,16 @@
     <main class="list-container">
         <header class="tacvu">
             <div class="timkiem">
-                
+                {% if messages %}
+                <!-- Error message -->
+                <div class="d-flex justify-content-center">
+                    {% for message in messages %}
+                    {% if message.tags == 'error' or message.tags == 'success' %}
+                    <div>{{ message }}</div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
             <a class="add" href="{% url 'themHS' %}">
                 <img src="{% static 'images/add.png' %}" height="20px">
