@@ -335,3 +335,28 @@ def traCuu(request, pk):
         'marksFilter': marksFilter
     }
     return render(request, 'studentManager/traCuu.html', context)
+
+
+@login_required(login_url='login')
+def baoCao(request):
+
+    marks = Mark.objects.all()
+    myFilter = MarkFilter(request.GET, queryset=marks)
+    marks = myFilter.qs
+
+    print(myFilter.form)
+
+    stt = []
+
+    i = 0
+    for mark in marks:
+        i += 1
+        stt.append(i)
+
+    results = zip(stt, marks)
+
+    context = {
+        'myFilter': myFilter,
+        'results': results
+    }
+    return render(request, 'studentManager/baocao.html', context)

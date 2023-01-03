@@ -1,0 +1,83 @@
+{% extends 'studentManager/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="list-container">
+  <div class="main-report">
+    <div class="report-tab">
+      <div class="item-term">Báo cáo tổng kết học kì</div>
+      <div class="item-subject">Báo cáo tổng kết môn</div>
+    </div>
+    <div class="main-rp-sj">
+      <form class="list-year" method="GET" action="">
+        {%csrf_token %}
+        <label for="years_topic">Năm học:</label>
+        {{myFilter.form.year}}
+        <label for="subject_topic">Môn:</label>
+        {{myFilter.form.subject}}
+        <label for="term_topic">Học kì:</label>
+        {{myFilter.form.semester_mark}}
+        <button class="result-btn" name="rq_result">Xem kết quả</button>
+      </form>
+      <table class="table">
+        <tr>
+          <th>STT</th>
+          <th>Lớp</th>
+          <th>Sỉ số</th>
+          <th>Số lượng Đạt</th>
+          <th>Tỷ lệ</th>
+        </tr>
+        {% for stt, mark in results %}
+        <tr class="list">
+          <td><a href="#">{{stt}}</a></td>
+          <td><a href="#">{{mark.student.classOfSchool}}</a></td>
+          <td>10</td>
+          <td>8.8</td>
+          <td>8.8</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="main-rp-term">
+      <div class="list-year">
+        <label for="years_topic">Năm học:</label>
+        <select id="years_topic">
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022-2022</option>
+        </select>
+        <label for="term_topic">Học kì:</label>
+        <select id="term_topic">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+      <table class="table">
+        <tr>
+          <th>STT</th>
+          <th>Lớp</th>
+          <th>Sỉ số</th>
+          <th>Số lượng Đạt</th>
+          <th>Tỷ lệ</th>
+
+        </tr>
+        <tr class="list">
+          <td><a href="#">1</a></td>
+          <td><a href="#">10A1</a></td>
+          <td>40</td>
+          <td>39</td>
+          <td>9.9</td>
+        </tr>
+      </table>
+    </div>
+    <div class="btn-save">
+      <div action="">
+        <img src="{% static 'images/save.png' %}">
+        Lưu
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

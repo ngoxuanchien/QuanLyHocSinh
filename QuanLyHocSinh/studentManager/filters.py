@@ -3,9 +3,10 @@ from django_filters import CharFilter, ChoiceFilter
 from .models import *
 from django import forms
 
+
 class ClassFilter(django_filters.FilterSet):
-    #try:
-    class_list =[]
+    # try:
+    class_list = []
     year_list = []
     for student in Student.objects.all():
         for c in student.classOfSchool.all():
@@ -13,32 +14,33 @@ class ClassFilter(django_filters.FilterSet):
             year_list.append(c.year.year)
     class_choices = [(c.classID, c.classID) for c in set(class_list)]
     classOfSchool = ChoiceFilter(
-            label='',
-            choices=class_choices,
-            method='filter_by_class',
-            widget=forms.Select(attrs={'class': 'form-select'})
-        )
+        label='',
+        choices=class_choices,
+        method='filter_by_class',
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
 
     year_choices = [(y, y) for y in set(year_list)]
 
     year = ChoiceFilter(
-            label='Niên khóa',
-            choices=year_choices,
-            method='filter_by_year',
-            widget=forms.Select(attrs={'class': 'form-select'})
-        )
-    #except:
-       # ''''''
+        label='Niên khóa',
+        choices=year_choices,
+        method='filter_by_year',
+        widget=forms.Select(attrs={'class': 'form-select'})
+    )
+    # except:
+    # ''''''
 
     class Meta:
         model = Student
         fields = []
-    
+
     def filter_by_class(self, queryset, name, value):
-        return queryset.filter(classOfSchool__classID = value)
+        return queryset.filter(classOfSchool__classID=value)
 
     def filter_by_year(self, queryset, name, value):
-        return queryset.filter(classOfSchool__year = Age.objects.get(year = value))
+        return queryset.filter(classOfSchool__year=Age.objects.get(year=value))
+
 
 class MarkFilter(django_filters.FilterSet):
     try:
@@ -50,14 +52,14 @@ class MarkFilter(django_filters.FilterSet):
             method='filter_by_year',
             widget=forms.Select(attrs={'class': 'form-select'})
         )
-        print(years)
+        # print(years)
 
-        class_list=[]
+        class_list = []
         for mark in Mark.objects.all():
-            for c in mark.student.classOfSchool.filter(year = mark.subject.year):
+            for c in mark.student.classOfSchool.filter(year=mark.subject.year):
                 class_list.append(c)
         class_choices = [(c.classId, c.classId) for c in set(class_list)]
-        print(class_list)
+        # print(class_list)
         classOfSchool = ChoiceFilter(
             label='',
             choices=class_choices,
@@ -87,7 +89,7 @@ class MarkFilter(django_filters.FilterSet):
         ''''''
     class Meta:
         model = Mark
-        fields = ['subject', 'semester_mark']
+        fields = ['subject', 'semester_mark', 'year']
 
     def filter_by_class(self, queryset, name, value):
         print(f"------------------{value}----------------------")
@@ -100,7 +102,8 @@ class MarkFilter(django_filters.FilterSet):
         return queryset.filter(semester_mark=value)
 
     def filter_by_year(self, queryset, name, value):
-        return queryset.filter(subject__year=Age.objects.get(year = value))
+        return queryset.filter(subject__year=Age.objects.get(year=value))
+
 
 class StudentInMarkFilter(django_filters.FilterSet):
     try:
