@@ -224,6 +224,19 @@ a {
   background: rgb(109, 237, 109);
 }
 
+.buttonlink {
+  background-color: aquamarine;
+  border: none;
+  color: black;
+  padding: 6px 15px;
+  border-radius: 12px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: -5px 0px;
+  cursor: pointer;
+}
 
 
 

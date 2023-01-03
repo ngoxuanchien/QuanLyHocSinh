@@ -45,17 +45,16 @@
                 </tr>
                 {% endfor %}
             {% endif %}
-            
         </table>
+        <br>
         <div class="main_form_term col-lg-6">
-            <div class="row">  
-                <div class="col-lg-5">
-                    <button type="submit" class="btn btn-primary" style="border-radius: 8px; font-size: 15px; background-color: aquamarine; border-color:white;">
-                        Thêm học sinh
-                    </button>
-                    <a class="btn btn-cancel text-center" href="{% url 'dsLop' %}">Trở về</a>
-                </div>  
-            </div>                
+                    <button type="submit" class="btn btn-primary" style=" padding: 5px 15px;
+                    border-radius: 12px; font-size: 17px; background-color: aquamarine; border-color:white;">
+                        &nbspThêm học sinh&nbsp
+                    </button>&nbsp&nbsp
+                    <a style="text-decoration:none" href="{% url 'dsLop' %}" class="buttonlink">
+                        &nbspTrở về&nbsp
+                    </a>             
         </div>
     </form>
     {% if messages %}
