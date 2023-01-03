@@ -47,14 +47,14 @@
             {% endif %}
         </table>
         <br>
-        <div class="main_form_term col-lg-6">
-                    <button type="submit" class="btn btn-primary" style=" padding: 5px 15px;
-                    border-radius: 12px; font-size: 17px; background-color: aquamarine; border-color:white;">
-                        &nbspThêm học sinh&nbsp
-                    </button>&nbsp&nbsp
-                    <a style="text-decoration:none" href="{% url 'dsLop' %}" class="buttonlink">
-                        &nbspTrở về&nbsp
-                    </a>             
+        <div style = 'width:100%; text-align: center;'>
+            <div style = 'display: inline-block; '>
+                <button type="submit" class="btn btn-primary" style=" padding: 5px 15px;
+                    border-radius: 12px; border-style: solid; font-size: 17px; background-color: aquamarine; border-color:white;">&nbspThêm học sinh&nbsp</button>
+            </div>
+            <div style = 'display: inline-block; '>
+                <a href="{% url 'dsLop' %}" class="buttonlink" sytle="border-radius: 12px; border-color:white; padding: 5px 15px;">&nbspTrở về&nbsp</a>
+            </div>
         </div>
     </form>
     {% if messages %}
