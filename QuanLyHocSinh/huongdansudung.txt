@@ -11,9 +11,4 @@ Nhấn Logout bên góc phải trên.
 3. Get_user_details (On track):
 Thêm 'get_user_details' ở cuối địa chỉ ip (đường link)
 
-4. Note của Phương: Do chưa tạo đủ database mà phần của Phương dựa vào nên
-    4.1 Trong dslop.html, xóa example (đã chú thích) và unnote {class_filter.form. } khi cập nhật database
-    student và age
-    4.2 Khi đã cập nhật user.role thì unnote phần đó và xóa example ngay bên dưới -- done
-    4.3 Khi đã cập nhật các niên khóa, xóa example ở chonNamHoc.html và unnote code ngay bên dưới
-
+4. Live server: 2f2c-2405-4802-9056-f8a0-d896-5449-a561-25af.ap.ngrok.io
