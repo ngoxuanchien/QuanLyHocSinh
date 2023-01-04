@@ -7,7 +7,7 @@ body {
   background-color: rgb(249, 249, 249);
   /* background-color: gray; */
 
-  padding-bottom:50px;
+  padding-bottom: 50px;
   text-decoration: none;
   transition: all 0.15s;
 }
@@ -28,7 +28,7 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  
+
   background-color: white;
   border-bottom: 2px solid rgb(228, 228, 228);
 
@@ -38,7 +38,7 @@ a {
   margin-left: 1rem;
   height: 100%;
   max-width: 250px;
-  
+
   display: flex;
   align-items: center;
   /* background-color: lightblue; */
@@ -156,7 +156,7 @@ a {
   /* background-color: lightblue; */
 }
 
-.user-menu a{
+.user-menu a {
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -183,7 +183,8 @@ a {
   background-color: rgb(230, 230, 230);
   top: 55px;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  ;
   overflow: hidden;
   display: none;
   left: -40px;
@@ -222,20 +223,6 @@ a {
 .login:hover {
   border: 1px solid rgb(94, 93, 93);
   background: rgb(109, 237, 109);
-}
-
-.buttonlink {
-  background-color: aquamarine;
-  border: none;
-  color: black;
-  padding: 6px 15px;
-  border-radius: 12px;
-  text-align: right;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 17px;
-  margin: -5px 0px;
-  cursor: pointer;
 }
 
 
@@ -280,7 +267,8 @@ a {
   line-height: 75px;
   background: white;
   user-select: none;
-  border: 1px solid rgb(192, 192, 192);;
+  border: 1px solid rgb(192, 192, 192);
+  ;
 
   /* background-color: gray; */
 }
@@ -340,7 +328,7 @@ a {
 
 
 section {
-  background: url(images/bg.jpg) no-repeat;
+  background: url(static/images/bg.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -521,7 +509,7 @@ section {
   align-items: center;
 }
 
-.table tr th{
+.table tr th {
   background-color: bisque;
   text-align: center;
   /* border: 1px solid black; */
@@ -540,6 +528,10 @@ section {
   /* align-items: center; */
 }
 
+.edit-delete div button a {
+  color: white;
+}
+
 .edit {
   background-color: #FFD700;
   border: none;
@@ -554,7 +546,7 @@ section {
 
 .edit:hover {
   border: 1px solid #DAA520
-  /* background-color: yellow; */
+    /* background-color: yellow; */
 }
 
 .delete {
@@ -612,7 +604,7 @@ section {
 }
 
 .list-year {
-  height: 36px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -634,8 +626,28 @@ section {
   cursor: pointer;
   min-width: 50px;
   height: 25px;
+  display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
+
+.result-btn {
+  margin-left: 20px;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #96D6FF;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #96D6FF;
+}
+
+.result-btn:hover {
+  color: #63c3ff;
+  border: 1px solid #63c3ff;
+}
+
 
 .report-button {
   margin-top: -30px;
@@ -716,14 +728,14 @@ section {
   height: 125px;
 }
 
-.wrapper .form .input_field .custom_select { 
+.wrapper .form .input_field .custom_select {
   position: relative;
   width: 100%;
   height: 37px;
   /* background-color: lightgreen; */
 }
 
-.wrapper .form .input_field .custom_select select{
+.wrapper .form .input_field .custom_select select {
   -webkit-appearance: none;
   appearance: none;
   border: 1px solid #d5dbd9;
@@ -743,9 +755,8 @@ section {
   border-color: gray transparent transparent transparent;
 }
 
-.wrapper .form .input_field .textarea:focus,
-.wrapper .form .input_field .input:focus 
-.wrapper .form .input_field select {
+.wrapper .form .input_field textarea:focus,
+.wrapper .form .input_field .input:focus .wrapper .form .input_field select {
   border: 1px solid gray;
 }
 
@@ -761,7 +772,11 @@ section {
   outline: none;
   margin-top: 10px;
   margin-right: 10px;
-  text-align: center;
+}
+
+.wrapper .form .input_field .btn-cancel a {
+  width: 100%;
+  padding: 0;
 }
 
 .wrapper .form .input_field .btn-save-st {
