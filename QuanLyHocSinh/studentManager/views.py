@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .filters import *
 from .forms import *
+from django.db.models import Q
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
@@ -337,6 +338,87 @@ def traCuu(request, pk):
     return render(request, 'studentManager/traCuu.html', context)
 
 
+@login_required(login_url='login')
+def monHoc(request):
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    marks = Mark.objects.all()
+    myFilter = MarkFilter(request.GET, queryset=marks)
+    marks = myFilter.qs
+    # if request.method == 'POST':
+    marks = marks.filter(Q(student__user__username__icontains=q))
+    # print(myFilter.form)
+    context = {
+        'myFilter': myFilter,
+        'marks': marks
+    }
+    return render(request, 'studentManager/subject.html', context)
+
+
+@ login_required(login_url='login')
+def mark_form(request):
+    form = MarkForm()
+
+    context = {
+        'form': form
+    }
+
+    if request.method == 'POST':
+        if request.POST.get('button') == 'SAVE':
+
+            subject = Subject.objects.filter(
+                id=request.POST.get('subject')).first()
+            student = Student.objects.filter(
+                id=request.POST.get('student')).first()
+            Mark.objects.create(
+                subject=subject,
+                student=student,
+                markFifteen=request.POST.get('markFifteen'),
+                markOne=request.POST.get('markOne'),
+                markFinal=request.POST.get('markFinal'),
+                semester_mark=request.POST.get('semester_mark'),
+            )
+            return redirect('monHoc')
+
+    return render(request, 'studentManager/markForm.html', context)
+
+
+@ login_required(login_url='login')
+def update_mark(request, pk):
+    mark = Mark.objects.get(id=pk)
+    form = MarkForm(request.POST or None, instance=mark)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            student = form.cleaned_data.get('student')
+            subject = form.cleaned_data.get('subject')
+            markFifteen = form.cleaned_data.get('markFifteen')
+            markOne = form.cleaned_data.get('markOne')
+            markFinal = form.cleaned_data.get('markFinal')
+            semester_mark = form.cleaned_data.get('semester_mark')
+
+            st = Mark.objects.get(id=mark.id)
+            st.student = Student.objects.get(id=student.id)
+            st.subject = subject
+            st.markFifteen = markFifteen
+            st.markOne = markOne
+            st.markFinal = markFinal
+            st.semester_mark = semester_mark
+            st.save()
+            return redirect('monHoc')
+
+    context = {
+        'form': form
+    }
+    return render(request, 'studentManager/markForm.html', context)
+
+
+@ login_required(login_url='login')
+def delete_mark(request, pk):
+    mark = Mark.objects.get(id=pk)
+    mark.delete()
+    return redirect('monHoc')
+
+
 def diemTB(mark):
     result = mark.markFifteen + mark.markOne * 2 + mark.markFinal * 3
     return round(result / 6, 2)
@@ -353,11 +435,6 @@ def kiemTraDat(marks):
             return False
 
     return True
-    # print(subjects)
-    # for subject in subjects:
-    #     print(subject)
-
-    # pass
 
 
 @login_required(login_url='login')
@@ -378,7 +455,7 @@ def baoCao(request):
     for mark in marks:
         setClass.add(mark.student.classOfSchool.first())
 
-    print(setClass)
+    # print(setClass)
     for lop in setClass:
         listMark = marks.filter(student__classOfSchool=lop)
         setStudent = set()
@@ -413,3 +490,15 @@ def baoCao(request):
         'results': results
     }
     return render(request, 'studentManager/baocao.html', context)
+
+
+@login_required(login_url='login')
+def Setting(request):
+    form = YearForm()
+    # myFilter = AgeFilter(request.GET, queryset=age)
+    # age = myFilter.qs
+    # print(age)
+    context = {
+        'form': form
+    }
+    return render(request, 'studentManager/setting.html', context)

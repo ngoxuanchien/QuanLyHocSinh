@@ -26,5 +26,10 @@ urlpatterns = [
     path("tracuu/namhoc/namhoc_<int:pk>", views.traCuu, name='traCuu'),
 
     # path("tracuu/namhoc/", views.traCuu, name='traCuu'),
+    path('monHoc', views.monHoc, name='monHoc'),
+    path('markForm', views.mark_form, name='markForm'),
+    path('updateMark/<str:pk>/', views.update_mark, name='updateMark'),
+    path('deleteMark/<str:pk>/', views.delete_mark, name='deleteMark'),
     path("baoCao", views.baoCao, name='baoCao'),
+    path("caiDat", views.Setting, name='caiDat'),
 ]

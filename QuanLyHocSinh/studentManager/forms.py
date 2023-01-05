@@ -3,11 +3,11 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.forms import ModelForm, CharField, Select
 from django import forms
 
+
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = '__all__'
-        
 
 
 class CustomUserForm(forms.ModelForm):
@@ -41,7 +41,7 @@ class CustomUserForm(forms.ModelForm):
                    'placeholder': "Địa chỉ"
                    }))
         address.required = False
-        
+
     except:
         ''''''
     # def __init__(self, *args, **kwargs):
@@ -71,9 +71,9 @@ class TeacherForm(CustomUserForm):
     def __init__(self, *args, **kwargs):
         super(TeacherForm, self).__init__(*args, **kwargs)
         self.fields['subject'].required = False
-        #self.fields['classOfSchool'].required = False
-        #self.fields['subject'].widget.attrs.update({'class': 'form-select'})
-        #self.fields['classOfSchool'].widget.attrs.update(            {'class': 'form-select'})
+        # self.fields['classOfSchool'].required = False
+        # self.fields['subject'].widget.attrs.update({'class': 'form-select'})
+        # self.fields['classOfSchool'].widget.attrs.update(            {'class': 'form-select'})
 
     class Meta:
         model = Teacher
@@ -177,29 +177,38 @@ class updateCustomUserForm(forms.ModelForm):
 class YearForm(ModelForm):
     try:
         year_choices = set([(a, a.year) for a in Age.objects.all()])
-        year = CharField(label="",widget=Select(
-            choices=year_choices, 
+        year = CharField(label="", widget=Select(
+            choices=year_choices,
             attrs={'class': 'form-select'
-        }))
+                   }))
+        max_age = year.max_age
+        min_age = year.min_age
     except:
         ''''''
     class Meta:
         model = Age
-        fields = ['year']
+        fields = '__all__'
 
 
 class lapDSForm(ModelForm):
-    def __init__(self, *args,**kwargs):
+    def __init__(self, *args, **kwargs):
         self.pk = kwargs.pop('pk', None)
-        super(lapDSForm,self).__init__(*args,**kwargs)
-        age = Age.objects.get(id = self.pk)
-        class_choices = set([(c.classID, c.classID) for c in SchoolClass.objects.filter(year = age)])
+        super(lapDSForm, self).__init__(*args, **kwargs)
+        age = Age.objects.get(id=self.pk)
+        class_choices = set([(c.classID, c.classID)
+                            for c in SchoolClass.objects.filter(year=age)])
         self.fields['classID'].label = ''
         self.fields['classID'].widget = Select(
-            choices=class_choices, 
+            choices=class_choices,
             attrs={'class': 'form-select'}
         )
 
     class Meta:
         model = SchoolClass
         fields = ['classID']
+
+
+class MarkForm(forms.ModelForm):
+    class Meta:
+        model = Mark
+        fields = '__all__'

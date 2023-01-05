@@ -99,18 +99,18 @@
       <img src="{% static 'images/class.png' %}">
       Lớp học
     </a>
-    <a href="#" class="sidebar-link">   <!--Môn học-->
+    <a href="{% url 'monHoc' %}" class="sidebar-link">   <!--Môn học-->
       <img src="{% static 'images/book.png' %}">
       Môn học
     </a>
     <a href="{% url 'baoCao' %}" class="sidebar-link">
-      <img src="{% static 'images/book.png' %}">
+      <img src="{% static 'images/report.png' %}">
       Báo cáo tổng kết
     </a>
     <a href="{% url 'traCuuNamHoc' %}" class="sidebar-link">
       <img src="{% static 'images/search.png' %}">
       Tra cứu học sinh
-    <a href="" class="sidebar-link">
+    <a href="{% url 'caiDat' %}" class="sidebar-link">
       <img src="{% static 'images/settings.png' %}">
       Cài đặt
     </a>

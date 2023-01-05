@@ -919,24 +919,24 @@ section {
   background-color: rgba(144, 238, 144, 0.678);
 }
 
-.subject {
+.cus_subject {
   /* width: 580px; */
-  /* background-color: lightpink; */
+  /* background-color: lightgreen; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.subject input {
-  height: 30px;
-  width: 80px;
+.cus_subject #ip {
+  width: 100px;
+  height: 20px;
   margin: 5px;
   text-align: center;
   border-radius: 3px;
-  border: none;
+  /* border: none; */
 }
 
-.subject .add {
+.cus_subject .add {
   margin-left: 5px;
   border: 1px solid black;
   background-color: lightgreen;
@@ -944,6 +944,6 @@ section {
   border-radius: 3px;
 }
 
-.subject .add:hover {
+.cus_subject .add:hover {
   background-color: rgba(144, 238, 144, 0.499);
 }

@@ -1,0 +1,159 @@
+{% extends 'studentManager/base.html' %}
+{% load static %}
+
+{% block content %}
+  <main class="list-container">
+    <div class="bg">
+      <div class="setting">
+        <div class="wrapper">
+          <div class="title">
+            Quy định
+          </div>
+          <div class="form">
+            <div class="input_field">
+              <label>Năm học</label>
+              <div class="custom_select">
+                {{form.year}} 
+              </div>
+            </div>
+            <div class="input_field">
+              <label>Tuổi tối thiểu</label>
+              <!-- {{form.max_age}} -->
+              <div class="custom_select">
+                <select>
+                  <option value="">----</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                  <option value="">6</option>
+                  <option value="">7</option>
+                  <option value="">8</option>
+                  <option value="">9</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
+                  <option value="">23</option>
+                  <option value="">24</option>
+                  <option value="">25</option>
+                  <option value="">26</option>
+                  <option value="">27</option>
+                  <option value="">28</option>
+                  <option value="">29</option>
+                </select>
+              </div>
+            </div>
+            <div class="input_field">
+              <label>Tuổi tối đa</label>
+              <div class="custom_select">
+                <select>
+                  <option value="">----</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                  <option value="">6</option>
+                  <option value="">7</option>
+                  <option value="">8</option>
+                  <option value="">9</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
+                  <option value="">23</option>
+                  <option value="">24</option>
+                  <option value="">25</option>
+                  <option value="">26</option>
+                  <option value="">27</option>
+                  <option value="">28</option>
+                  <option value="">29</option>
+                </select>
+              </div>
+            </div>
+            <div class="input_field">
+              <label>Sỉ số tối đa</label>
+              <div class="custom_select">
+                <select>
+                  <option value="">----</option>
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                  <option value="">6</option>
+                  <option value="">7</option>
+                  <option value="">8</option>
+                  <option value="">9</option>
+                  <option value="">10</option>
+                  <option value="">11</option>
+                  <option value="">12</option>
+                  <option value="">13</option>
+                  <option value="">14</option>
+                  <option value="">15</option>
+                  <option value="">16</option>
+                  <option value="">17</option>
+                  <option value="">18</option>
+                  <option value="">19</option>
+                  <option value="">20</option>
+                  <option value="">21</option>
+                  <option value="">22</option>
+                  <option value="">23</option>
+                  <option value="">24</option>
+                  <option value="">25</option>
+                  <option value="">26</option>
+                  <option value="">27</option>
+                  <option value="">28</option>
+                  <option value="">29</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="input_field">
+              <label>Điểm chuẩn</label>
+              <input type="text" class="input">
+            </div>
+            <div class="input_field">
+              <label>Môn học</label>
+              <div class="cus_subject">
+                <input id="ip" type="text" value="Toán">
+                <input id="ip" type="text" value="Lý">
+                <input id="ip" type="text" value="Hoá">
+                <input id="ip" type="text" value="Sinh">
+                <input id="ip" type="text" value="Sử">
+                <input id="ip" type="text" value="Địa">
+                <input id="ip" type="text" value="Đạo đức">
+                <input id="ip" type="text" value="Thể dục">
+                <input id="ip" type="text" value="Văn">
+                <button class="add">Thêm</button>
+              </div>
+            </div>
+            <div class="input_field">
+              <button class="btn-cancel" href="{% url 'homepage' %}">Huỷ</button>
+              <button class="btn-save-st">Lưu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+{% endblock content %}

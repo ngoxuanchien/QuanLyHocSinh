@@ -58,10 +58,10 @@ class MarkFilter(django_filters.FilterSet):
         for mark in Mark.objects.all():
             for c in mark.student.classOfSchool.filter(year=mark.subject.year):
                 class_list.append(c)
-        class_choices = [(c.classId, c.classId) for c in set(class_list)]
+        class_choices = [(c.classID, c.classID) for c in set(class_list)]
         # print(class_list)
         classOfSchool = ChoiceFilter(
-            label='',
+            label='Lớp',
             choices=class_choices,
             method='filter_by_class',
             widget=forms.Select(attrs={'class': 'form-select'})
@@ -92,8 +92,7 @@ class MarkFilter(django_filters.FilterSet):
         fields = ['subject', 'semester_mark', 'year']
 
     def filter_by_class(self, queryset, name, value):
-        print(f"------------------{value}----------------------")
-        return queryset.filter(student__classOfSchool__classId=value)
+        return queryset.filter(student__classOfSchool__classID=value)
 
     def filter_by_subject(self, queryset, name, value):
         return queryset.filter(subject__name=value)

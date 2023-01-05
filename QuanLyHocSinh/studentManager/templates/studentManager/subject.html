@@ -1,0 +1,68 @@
+{% extends 'studentManager/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="list-container">
+  <header class="tacvu">
+    <form class="timkiem" action="{% url 'monHoc' %}" method="GET" action="">
+      {% csrf_token %}
+      <input name="q" class="search-bar" placeholder="Tìm kiếm...">
+      <button class="search-button">
+        <img src="{% static 'images/search.png' %}" class="search-icon">
+      </button>
+    </form>
+    <a class="add" href="{% url 'markForm' %}">
+      <img src="{% static 'images/add.png' %}" height="20px">
+      <p>Thêm</p>
+    </a>
+  </header>
+  <form class="list-year" method="GET" action="">
+    {%csrf_token %}
+    <label for="years_topic">Năm học:</label>
+    {{myFilter.form.year}}
+    <label for="years_topic">Lớp:</label>
+    {{myFilter.form.classOfSchool}}
+    <label for="subject_topic">Môn:</label>
+    {{myFilter.form.subject}}
+    <label for="term_topic">Học kì:</label>
+    {{myFilter.form.semester_mark}}
+    <button class="result-btn" name="rq_result">Xem kết quả</button>
+  </form>
+  <table class="table">
+    <tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Điểm 15'</th>
+      <th>Điểm 1 tiết</th>
+      <th>Điểm cuối HK</th>
+      <th></th>
+
+    </tr>
+    {% for mark in marks %}
+    <tr class="list">
+      <td><a href="#">1</a></td>
+      <td><a href="#">{{mark.student.user}}</a></td>
+      <td>{{mark.markFifteen}}</td>
+      <td>{{mark.markOne}}</td>
+      <td>{{mark.markFinal}}</td>
+      <td class="edit-delete">
+        <div>
+          <button class="edit"><a href="{% url 'updateMark' mark.id %}">Sửa</a></button>
+          <button class="delete"><a href="{% url 'deleteMark' mark.id %}"
+              onclick="return confirm('Xác nhận xóa ?')">Xoá</a></button>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <div class="pagenumber">
+    <button class="previous" type="previous">
+      <img src="{% static 'images/previous.png' %}">
+    </button>
+    <p>1/1</p>
+    <button class="next" type="next">
+      <img src="{% static 'images/next.png' %}">
+    </button>
+  </div>
+</div>
+{% endblock content %}
