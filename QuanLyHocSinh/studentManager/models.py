@@ -74,10 +74,10 @@ class SchoolClass(models.Model):
     classID = models.CharField(max_length=10, null=False, unique=False)
     n_students = models.IntegerField(null=False)
     year = models.ForeignKey(
-        Age, null=False, on_delete=models.CASCADE, unique=True)
+        Age, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.classID
+        return self.year.year + '_' + self.classID
 
 
 class Subject(models.Model):

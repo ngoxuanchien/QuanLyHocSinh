@@ -337,25 +337,78 @@ def traCuu(request, pk):
     return render(request, 'studentManager/traCuu.html', context)
 
 
+def diemTB(mark):
+    result = mark.markFifteen + mark.markOne * 2 + mark.markFinal * 3
+    return round(result / 6, 2)
+
+
+def kiemTraDat(marks):
+
+    subjects = set()
+    for mark in marks:
+        subjects.add(mark.subject)
+
+    for mark in marks:
+        if diemTB(mark) < mark.subject.approved_mark:
+            return False
+
+    return True
+    # print(subjects)
+    # for subject in subjects:
+    #     print(subject)
+
+    # pass
+
+
 @login_required(login_url='login')
 def baoCao(request):
 
     marks = Mark.objects.all()
     myFilter = MarkFilter(request.GET, queryset=marks)
-    marks = myFilter.qs
+    marks = myFilter.qs.order_by('student__classOfSchool')
+    # for mark in marks:
+    #     print(mark.student.classOfSchool.first().classID)
+    siSo = []
+    soLuongDat = []
+    tiLe = []
 
-    print(myFilter.form)
+    # print(myFilter.form)
+
+    setClass = set()
+    for mark in marks:
+        setClass.add(mark.student.classOfSchool.first())
+
+    print(setClass)
+    for lop in setClass:
+        listMark = marks.filter(student__classOfSchool=lop)
+        setStudent = set()
+        dat = 0
+
+        for mark in listMark:
+            setStudent.add(mark.student)
+        for student in setStudent:
+            if kiemTraDat(marks.filter(student=student)):
+                dat += 1
+
+        soLuongDat.append(dat)
+        siSo.append(len(setStudent))
+        tiLe.append(round(dat / len(setStudent) * 100, 2))
 
     stt = []
+
+    bit = 1
+    if request.method == 'POST':
+        bit = (bit - 1) ^ 2
 
     i = 0
     for mark in marks:
         i += 1
         stt.append(i)
 
-    results = zip(stt, marks)
+    results = zip(stt, setClass, siSo, soLuongDat, tiLe)
 
     context = {
+        'bit': bit,
         'myFilter': myFilter,
         'results': results
     }
