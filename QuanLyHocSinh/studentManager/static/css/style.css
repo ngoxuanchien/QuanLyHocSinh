@@ -772,11 +772,17 @@ section {
   outline: none;
   margin-top: 10px;
   margin-right: 10px;
+  
 }
 
-.wrapper .form .input_field .btn-cancel a {
+.wrapper .form .input_field .btn-cancel {
   width: 100%;
-  padding: 0;
+  height: 100%;
+  /* padding: 0; */
+  padding: 8px 10px;
+  /* display: block; */
+  /* justify-items: center; */
+  text-align: center;
 }
 
 .wrapper .form .input_field .btn-save-st {

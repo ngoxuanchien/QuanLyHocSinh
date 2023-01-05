@@ -12,7 +12,7 @@ class CustomUserManager(UserManager):
     def _create_user(self, username, password, **extra_fields):
         user = CustomUser(username=username, **extra_fields)
         user.password = make_password(password)
-        user.save(using=self._db)        
+        user.save(using=self._db)
         return user
 
     def create_staff(self, username, password, **extra_fields):
@@ -32,7 +32,7 @@ class CustomUserManager(UserManager):
 class CustomUser(AbstractUser):
     USER_TYPE = (('1', "Admin"), ('2', "Teacher"), ('3', "Student"))
     SEX_CATELOGY = [("1", "Nam"), ("0", "Nữ")]
-    #now = datetime.now().strftime('%Y-%m-%d')
+    # now = datetime.now().strftime('%Y-%m-%d')
     # dateOfBirth = models.DateField(default=datetime.strptime(now,'%Y-%m-%d')
     now = date.today
     username = models.CharField(max_length=200, unique=True)
@@ -41,22 +41,24 @@ class CustomUser(AbstractUser):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     name = models.CharField(default='', max_length=200)
-    
+
     dateOfBirth = models.DateField(default=now)
-    sex = models.CharField(default='1', choices=SEX_CATELOGY,max_length=1)
+    sex = models.CharField(default='1', choices=SEX_CATELOGY, max_length=1)
     phone = models.CharField(default='', max_length=20, blank=True)
     email = models.EmailField(max_length=200, unique=True)
     address = models.TextField(default='', blank=True)
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
+
     class Meta:
         constraints = [
             models.UniqueConstraint(
                 fields=['username', 'email'], name="unique_user")
         ]
+
     def __str__(self):
-        return self.username 
+        return self.username
 
 
 class Age(models.Model):
@@ -71,7 +73,8 @@ class Age(models.Model):
 class SchoolClass(models.Model):
     classID = models.CharField(max_length=10, null=False, unique=False)
     n_students = models.IntegerField(null=False)
-    year = models.ForeignKey(Age, null=False, on_delete=models.CASCADE, unique=True)
+    year = models.ForeignKey(
+        Age, null=False, on_delete=models.CASCADE, unique=True)
 
     def __str__(self):
         return self.classID
@@ -104,8 +107,8 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    #classOfSchool = models.ManyToManyField(SchoolClass,blank =True)
-    subject = models.ForeignKey(Subject,blank =True, on_delete=models.CASCADE)
+    # classOfSchool = models.ManyToManyField(SchoolClass,blank =True)
+    subject = models.ForeignKey(Subject, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
@@ -118,14 +121,15 @@ class Mark(models.Model):
     )
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    semester_mark = models.CharField(max_length=200, null=False, choices=SEMESTER_CATEGORY)
+    semester_mark = models.CharField(
+        max_length=200, null=False, choices=SEMESTER_CATEGORY)
     markFifteen = models.FloatField(null=True, blank=True)
     markOne = models.FloatField(null=True, blank=True)
     markFinal = models.FloatField(null=True, blank=True)
-    
+
     def __str__(self):
-        return self.student.user.username+ '_'+ self.semester_mark
-    
+        return self.student.user.username + '_' + self.semester_mark
+
 
 @receiver(post_save, sender=CustomUser)
 def create_user_profile(sender, instance, created, **kwargs):
