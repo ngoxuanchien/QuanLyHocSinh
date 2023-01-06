@@ -3,6 +3,9 @@
 
 
 {% block content %}
+<h1 class="label">
+    <center>Lập danh sách lớp</center>
+</h1>
 <form method="POST">
     {% csrf_token %}
     <div class="main_form-header row">
@@ -58,7 +61,12 @@
     {% if messages %}
         <div class="d-flex justify-content-center">
             {% for message in messages %}
+            {% if message.tags == 'error' or message.tags == 'success' %}
                 <div>{{ message }}</div>
+            {% else %}
+                <div>Chọn học sinh cần lập danh sách</div>
+            {% endif %}
+
             {% endfor %}
         </div>
     {% endif %}

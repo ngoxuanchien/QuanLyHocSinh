@@ -267,8 +267,7 @@ def lapDSLop(request, pk):
                     messages.success(request, "Thêm thành công")
                     return redirect(reverse('lapDS', kwargs={'pk': pk}))
                 else:
-                    messages.success(
-                        request, "Số lượng học sinh vượt quá qui định")
+                    messages.error(request, "Số lượng học sinh vượt quá qui định")
     context = {
         'students': zip(student_list2, formatDate),
         'form': form,
@@ -288,9 +287,7 @@ def trungBinhMon(subject, student):
                 (mark.markFifteen + 2 * mark.markOne + 3 * mark.markFinal) / 6, 2)
     return avgMarks1, avgMarks2
 
-# @login_required(login_url='login')
-
-
+# @login_required(login_url='loginpage')
 def traCuuNamHoc(request):
     form = YearForm()
     age = Age.objects.all()
