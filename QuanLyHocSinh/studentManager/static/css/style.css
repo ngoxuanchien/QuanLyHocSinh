@@ -225,7 +225,19 @@ a {
   background: rgb(109, 237, 109);
 }
 
-
+.buttonlink {  /*button của lapDS */
+  background-color: aquamarine;
+  border: none;
+  color: black;
+  padding: 7px 15px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: -5px 0px;
+  cursor: pointer;
+}
 
 
 
