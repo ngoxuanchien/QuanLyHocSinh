@@ -267,8 +267,7 @@ def lapDSLop(request, pk):
                     messages.success(request, "Thêm thành công")
                     return redirect(reverse('lapDS', kwargs={'pk': pk}))
                 else:
-                    messages.success(
-                        request, "Số lượng học sinh vượt quá qui định")
+                    messages.error(request, "Số lượng học sinh vượt quá qui định")
     context = {
         'students': zip(student_list2, formatDate),
         'form': form,
