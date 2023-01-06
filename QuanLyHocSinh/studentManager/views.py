@@ -277,6 +277,8 @@ def lapDSLop(request, pk):
 
 
 def trungBinhMon(subject, student):
+    avgMarks1 = 0
+    avgMarks2 = 0
     for mark in Mark.objects.filter(student=student).filter(subject=subject):
         if mark.semester_mark == '1':
             avgMarks1 = round(
@@ -345,7 +347,7 @@ def monHoc(request):
     myFilter = MarkFilter(request.GET, queryset=marks)
     marks = myFilter.qs
     # if request.method == 'POST':
-    marks = marks.filter(Q(student__user__username__icontains=q))
+    marks = marks.filter(Q(student__user__name__icontains=q))
     # print(myFilter.form)
     stt = []
     i = 0
