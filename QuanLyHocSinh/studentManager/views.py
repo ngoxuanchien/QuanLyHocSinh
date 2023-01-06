@@ -347,6 +347,12 @@ def monHoc(request):
     # if request.method == 'POST':
     marks = marks.filter(Q(student__user__username__icontains=q))
     # print(myFilter.form)
+    stt = []
+    i = 0
+    for mark in marks:
+        i += 1
+        stt.append(i)
+    marks = zip(stt, marks)
     context = {
         'myFilter': myFilter,
         'marks': marks
