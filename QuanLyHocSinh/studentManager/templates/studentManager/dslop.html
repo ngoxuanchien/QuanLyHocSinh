@@ -10,41 +10,49 @@
     <p>Lập danh sách lớp</p>
   </a>
 </header>
+<h1 class="label">
+  <center>Danh sách lớp</center>
+</h1>
+<br>
+<div class="main-rp-sj" method="POST" action="">
+  <form class="list-year" action="" method="GET">
+    {%csrf_token %}
+    <label for="years_topic">Năm học:</label>
+      {{class_filter.form.year}}
+    <label for="class_topic">Lớp</label>
+      {{class_filter.form.classOfSchool}}
+    <label>Sỉ số: {{n_students}}</label>
+    <button class="result-btn" name="rq_result" style = "color: blue;">Xem kết quả</button>
+  </form>
 
-<form class="list-year" action="" method="GET">
-  {%csrf_token %}
-  <label for="years_topic">Năm học:</label>
-    {{class_filter.form.year}}
-  <label for="class_topic">Lớp</label>
-    {{class_filter.form.classOfSchool}}
-  <label>Sỉ số: {{n_students}}</label>
-  <button class="result-btn" name="rq_result">Xem kết quả</button>
-</form>
-
-<table class="table"> 
-  <tr>
-    <th>STT</th>
-    <th>Họ tên</th>
-    <th>Ngày sinh</th>
-    <th>Giới tính</th>
-    <th>Email</th>
-    <th>Địa chỉ</th>
-  </tr>
-  {% for student, date in students %}
-    <tr class ="list"> 
-      <td>{{ forloop.counter }}</td>
-      <td>{{student.user.name}}</td>
-      <td>{{date}}</td>
-    {%if student.user.sex == '1'%}
-      <td>Nam</td>
-    {%else%}
-      <td>Nữ</td>
-    {%endif%}
-      <td>{{student.user.email}}</td>
-      <td>{{student.user.address}}</td>
+  <table class="table"> 
+    <tr>
+      <th>STT</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+      <th>Email</th>
+      <th>Địa chỉ</th>
     </tr>
-  {% endfor %}
-</table>
+    {% for student, date in students %}
+      <tr class ="list"> 
+        <td>{{ forloop.counter }}</td>
+        <td>{{student.user.name}}</td>
+        <td>{{date}}</td>
+      {%if student.user.sex == '1'%}
+        <td>Nam</td>
+      {%else%}
+        <td>Nữ</td>
+      {%endif%}
+        <td>{{student.user.email}}</td>
+        <td>{{student.user.address}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+
+
+<br>
 
 <div class="pagenumber">
   <button class="previous" type="previous">
