@@ -209,6 +209,19 @@ class lapDSForm(ModelForm):
 
 
 class MarkForm(forms.ModelForm):
+    # try:
+    name_choice = {(None, '--------')}
+    name_choice.update(set([(n.id, n.user.name)
+                            for n in Student.objects.all()]))
+    # print(name_choice)
+    student = forms.CharField(label="", widget=forms.Select(
+        choices=name_choice,
+        attrs={'class': 'form-select'
+               }))
+    # except:
+    #     print("error")
+    #     ''''''
+
     class Meta:
         model = Mark
         fields = '__all__'

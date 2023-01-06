@@ -302,7 +302,7 @@ def traCuuNamHoc(request):
 
 
 # @allowed_users(allowed_roles=['Admin', 'Teacher'])
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def traCuu(request, pk):
     year = Age.objects.get(id=pk)
     marks = Mark.objects.filter(subject__year=year)
@@ -340,7 +340,7 @@ def traCuu(request, pk):
     return render(request, 'studentManager/traCuu.html', context)
 
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def monHoc(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     marks = Mark.objects.all()
@@ -362,7 +362,7 @@ def monHoc(request):
     return render(request, 'studentManager/subject.html', context)
 
 
-@ login_required(login_url='login')
+@ login_required(login_url='loginpage')
 def mark_form(request):
     form = MarkForm()
 
@@ -390,7 +390,7 @@ def mark_form(request):
     return render(request, 'studentManager/markForm.html', context)
 
 
-@ login_required(login_url='login')
+@ login_required(login_url='loginpage')
 def update_mark(request, pk):
     mark = Mark.objects.get(id=pk)
     form = MarkForm(request.POST or None, instance=mark)
@@ -420,7 +420,7 @@ def update_mark(request, pk):
     return render(request, 'studentManager/markForm.html', context)
 
 
-@ login_required(login_url='login')
+@ login_required(login_url='loginpage')
 def delete_mark(request, pk):
     mark = Mark.objects.get(id=pk)
     mark.delete()
@@ -445,7 +445,7 @@ def kiemTraDat(marks):
     return True
 
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def baoCao(request):
 
     marks = Mark.objects.all()
@@ -500,7 +500,7 @@ def baoCao(request):
     return render(request, 'studentManager/baocao.html', context)
 
 
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def Setting(request):
     form = YearForm()
     # myFilter = AgeFilter(request.GET, queryset=age)
