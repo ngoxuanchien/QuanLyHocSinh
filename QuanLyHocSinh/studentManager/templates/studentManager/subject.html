@@ -38,10 +38,10 @@
       <th></th>
 
     </tr>
-    {% for mark in marks %}
+    {% for stt, mark in marks %}
     <tr class="list">
-      <td><a href="#">1</a></td>
-      <td><a href="#">{{mark.student.user}}</a></td>
+      <td><a href="#">{{stt}}</a></td>
+      <td><a href="#">{{mark.student.user.name}}</a></td>
       <td>{{mark.markFifteen}}</td>
       <td>{{mark.markOne}}</td>
       <td>{{mark.markFinal}}</td>

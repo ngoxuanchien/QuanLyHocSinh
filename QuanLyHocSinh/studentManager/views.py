@@ -277,6 +277,8 @@ def lapDSLop(request, pk):
 
 
 def trungBinhMon(subject, student):
+    avgMarks1 = 0
+    avgMarks2 = 0
     for mark in Mark.objects.filter(student=student).filter(subject=subject):
         if mark.semester_mark == '1':
             avgMarks1 = round(
@@ -286,9 +288,7 @@ def trungBinhMon(subject, student):
                 (mark.markFifteen + 2 * mark.markOne + 3 * mark.markFinal) / 6, 2)
     return avgMarks1, avgMarks2
 
-# @login_required(login_url='login')
-
-
+# @login_required(login_url='loginpage')
 def traCuuNamHoc(request):
     form = YearForm()
     age = Age.objects.all()
@@ -300,7 +300,7 @@ def traCuuNamHoc(request):
 
 
 # @allowed_users(allowed_roles=['Admin', 'Teacher'])
-@login_required(login_url='login')
+@login_required(login_url='loginpage')
 def traCuu(request, pk):
     year = Age.objects.get(id=pk)
     marks = Mark.objects.filter(subject__year=year)
@@ -345,8 +345,14 @@ def monHoc(request):
     myFilter = MarkFilter(request.GET, queryset=marks)
     marks = myFilter.qs
     # if request.method == 'POST':
-    marks = marks.filter(Q(student__user__username__icontains=q))
+    marks = marks.filter(Q(student__user__name__icontains=q))
     # print(myFilter.form)
+    stt = []
+    i = 0
+    for mark in marks:
+        i += 1
+        stt.append(i)
+    marks = zip(stt, marks)
     context = {
         'myFilter': myFilter,
         'marks': marks
