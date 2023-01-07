@@ -78,7 +78,7 @@ python manage.py runserver
 
 
 # Link Youtube video demo
-
+https://www.youtube.com/watch?v=u7fZ61vWW14
 
 # Current status
 - Đăng nhập bằng tài khoản admin
