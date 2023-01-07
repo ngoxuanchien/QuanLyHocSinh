@@ -52,7 +52,7 @@ cd QuanLyHocSinh
 
 **4. Cài đặt các thư viện từ 'requirements.txt'**
 ```python
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 **5. Database migration**
