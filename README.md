@@ -133,8 +133,8 @@ git push heroku <tên branch muốn push>
 - Lập danh sách lớp
 - Tra cứu học sinh
 - Nhận bảng điểm môn
-- Nhận báo cáo tổng kết
-- Quản lí qui định
+- Báo cáo tổng kết
+- Quản lý quy định
 
 # Future works
 - Xuất bảng điểm 
