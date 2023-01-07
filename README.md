@@ -77,7 +77,7 @@ python manage.py runserver
 
 
 
-# Link demo trên Youtube 
+# Link Youtube video demo
 
 
 # Current status
