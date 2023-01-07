@@ -128,7 +128,7 @@ git push heroku <tên branch muốn push>
 # Link web 
 
 
-# Các chức năng đã hoàn thành
+# Current status
 - Tiếp nhận học sinh
 - Lập danh sách lớp
 - Tra cứu học sinh
@@ -136,6 +136,6 @@ git push heroku <tên branch muốn push>
 - Nhận báo cáo tổng kết
 - Quản lí qui định
 
-# Các chức năng cần làm thêm
+# Future works
 - Xuất bảng điểm 
 - Chỉnh sửa UI
