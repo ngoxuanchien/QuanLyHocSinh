@@ -45,14 +45,14 @@ venv/scripts/activate
 git clone https://github.com/ngoxuanchien/QuanLyHocSinh.git
 ```
 
-**4. Cài đặt các thư viện từ 'requirements.txt'**
-```python
-pip install -r requirements.txt
-```
-
-**5.Chuyển đến thư mục chứa project**
+**4.Chuyển đến thư mục chứa project**
 ```
 cd QuanLyHocSinh/QuanLyHocSinh
+```
+
+**5. Cài đặt các thư viện từ 'requirements.txt'**
+```python
+pip install -r requirements.txt
 ```
 
 **6. Database migration**
