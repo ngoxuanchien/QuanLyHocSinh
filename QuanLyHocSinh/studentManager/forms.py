@@ -209,19 +209,24 @@ class lapDSForm(ModelForm):
 
 
 class MarkForm(forms.ModelForm):
-    # try:
-    name_choice = {(None, '--------')}
-    name_choice.update(set([(n.id, n.user.name)
-                            for n in Student.objects.all()]))
-    # print(name_choice)
-    student = forms.CharField(label="", widget=forms.Select(
-        choices=name_choice,
-        attrs={'class': 'form-select'
-               }))
-    # except:
-    #     print("error")
-    #     ''''''
+    try:
+        name_choice = {(None, '--------')}
+        name_choice.update(set([(n.id, n.user.name)
+                                for n in Student.objects.all()]))
+        # print(name_choice)
+        student = forms.CharField(label="", widget=forms.Select(
+            choices=name_choice,
+            attrs={'class': 'form-select'
+                   }))
+    except:
+        ''''''
 
+    class Meta:
+        model = Mark
+        fields = '__all__'
+
+
+class MarkForm2(forms.ModelForm):
     class Meta:
         model = Mark
         fields = '__all__'

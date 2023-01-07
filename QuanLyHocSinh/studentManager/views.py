@@ -267,7 +267,8 @@ def lapDSLop(request, pk):
                     messages.success(request, "Thêm thành công")
                     return redirect(reverse('lapDS', kwargs={'pk': pk}))
                 else:
-                    messages.error(request, "Số lượng học sinh vượt quá qui định")
+                    messages.error(
+                        request, "Số lượng học sinh vượt quá qui định")
     context = {
         'students': zip(student_list2, formatDate),
         'form': form,
@@ -288,6 +289,8 @@ def trungBinhMon(subject, student):
     return avgMarks1, avgMarks2
 
 # @login_required(login_url='loginpage')
+
+
 def traCuuNamHoc(request):
     form = YearForm()
     age = Age.objects.all()
@@ -390,26 +393,28 @@ def mark_form(request):
 @ login_required(login_url='loginpage')
 def update_mark(request, pk):
     mark = Mark.objects.get(id=pk)
-    form = MarkForm(request.POST or None, instance=mark)
+    form = MarkForm2(request.POST or None, instance=mark)
 
     if request.method == 'POST':
-        if form.is_valid():
-            student = form.cleaned_data.get('student')
-            subject = form.cleaned_data.get('subject')
-            markFifteen = form.cleaned_data.get('markFifteen')
-            markOne = form.cleaned_data.get('markOne')
-            markFinal = form.cleaned_data.get('markFinal')
-            semester_mark = form.cleaned_data.get('semester_mark')
+        if request.POST.get('button') == 'SAVE':
+            if form.is_valid():
+                student = form.cleaned_data.get('student')
+                subject = form.cleaned_data.get('subject')
+                markFifteen = form.cleaned_data.get('markFifteen')
+                markOne = form.cleaned_data.get('markOne')
+                markFinal = form.cleaned_data.get('markFinal')
+                semester_mark = form.cleaned_data.get('semester_mark')
+                print(student)
 
-            st = Mark.objects.get(id=mark.id)
-            st.student = Student.objects.get(id=student.id)
-            st.subject = subject
-            st.markFifteen = markFifteen
-            st.markOne = markOne
-            st.markFinal = markFinal
-            st.semester_mark = semester_mark
-            st.save()
-            return redirect('monHoc')
+                st = Mark.objects.get(id=mark.id)
+                st.student = Student.objects.get(id=student.id)
+                st.subject = subject
+                st.markFifteen = markFifteen
+                st.markOne = markOne
+                st.markFinal = markFinal
+                st.semester_mark = semester_mark
+                st.save()
+                return redirect('monHoc')
 
     context = {
         'form': form
