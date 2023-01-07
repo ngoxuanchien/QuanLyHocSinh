@@ -45,32 +45,32 @@ venv/scripts/activate
 git clone https://github.com/ngoxuanchien/QuanLyHocSinh.git
 ```
 
-Chuyển đến thư mục chứa project
-```
-cd QuanLyHocSinh/QuanLyHocSinh
-```
-
 **4. Cài đặt các thư viện từ 'requirements.txt'**
 ```python
 pip install -r requirements.txt
 ```
 
-**5. Database migration**
+**5.Chuyển đến thư mục chứa project**
+```
+cd QuanLyHocSinh/QuanLyHocSinh
+```
+
+**6. Database migration**
 ```python
 python manage.py migrate
 ```
 
-**6. Tạo tài khoản Admin (Super User)**
+**7. Tạo tài khoản Admin (Super User)**
 ```python
 python manage.py createsuperuser
 ``` 
 
-**7. Chạy chương trình**
+**8. Chạy chương trình**
 ```python
 python manage.py runserver
 ```
 
-**8. Đăng nhập và sử dụng**
+**9. Đăng nhập và sử dụng**
 
 # Hướng dẫn deploy project lên Heroku
 **1. Clone repo về máy cá nhân**
