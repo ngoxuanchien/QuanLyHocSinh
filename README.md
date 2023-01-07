@@ -37,7 +37,7 @@ python -m venv venv
 **Kích hoạt môi trường**
 
 ```
-source venv/scripts/activate
+venv/scripts/activate
 ```
 
 **3. Clone project**
