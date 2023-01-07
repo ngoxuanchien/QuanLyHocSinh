@@ -8,16 +8,19 @@
 | 20120165 | Hồng Nhất Phương |
 
 # Giới thiệu project: Quản lý học sinh
-- Chúng ta đang thực hiện chuyển đổi số, việc áp dụng công nghệ thông tin vào những công việc quản lý sẽ giúp ích rất nhiều.Đó là lí do nhóm xây dựng lên hệ thống quản lí học sinh
--  Hệ thống giúp ta quản lí  dữ liệu  an toàn, tổ chức, sắp xếp dữ liệu một cách khoa học để tránh phải làm những công việc lặp đi lặp lại.
+**Ứng dụng quản lý học sinh giúp:**
+- Cung cấp nhiều tính năng, quản lý các phương diện cho trường học.
+- Nắm bắt thông tin các học sinh một cách nhanh nhất, dễ dàng nhất.
+- Cung cấp cho học sinh và phụ huynh những thông tin về lớp học, môn học, bảng điểm,… một cách nhanh chóng.
+- Tiết kiệm chi phí cho việc quản lý truyền thống.
 
 # Môi trường thực thi
 
-- Hệ điều hành: Windows
+- Hệ điều hành: Windows 10, 11
 - Framework: Django, Bootstrap
 - Database: SQL
 
-# Hướng dẫn chạy project 
+# Hướng dẫn cấu hình project chạy local PC
 
 **1. Tạo một thư mục (folder) để lưu project**
 
