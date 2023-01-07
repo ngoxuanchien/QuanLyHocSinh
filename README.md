@@ -13,7 +13,7 @@
 
 # Môi trường thực thi
 
-- Hệ điều hành: Windows 10, Windows 11
+- Hệ điều hành: Windows
 - Framework: Django, Bootstrap
 - Database: SQL
 
