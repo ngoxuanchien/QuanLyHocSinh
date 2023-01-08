@@ -104,4 +104,3 @@ https://www.youtube.com/watch?v=u7fZ61vWW14
 
 - Quản lý quy định
 - Chỉnh sửa giao diện người dùng
-- Thêm chức năng tạo tài khoản
