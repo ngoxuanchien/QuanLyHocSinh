@@ -404,7 +404,7 @@ def update_mark(request, pk):
                 markOne = form.cleaned_data.get('markOne')
                 markFinal = form.cleaned_data.get('markFinal')
                 semester_mark = form.cleaned_data.get('semester_mark')
-                print(student)
+                # print(student)
 
                 st = Mark.objects.get(id=mark.id)
                 st.student = Student.objects.get(id=student.id)

@@ -1,14 +1,17 @@
 # Thành viên nhóm
-| MSSV | Họ và Tên |
-| :---: | :---: |
-| 20120037 | Trần Thị Minh Anh | 
-| 20120042 | Trương Quân Bảo | 
-| 20120046 | Ngô Xuân Chiến |
+
+|   MSSV   |      Họ và Tên       |
+| :------: | :------------------: |
+| 20120037 |  Trần Thị Minh Anh   |
+| 20120042 |   Trương Quân Bảo    |
+| 20120046 |    Ngô Xuân Chiến    |
 | 20120146 | Nguyễn Thị Châu Ngọc |
-| 20120165 | Hồng Nhất Phương |
+| 20120165 |   Hồng Nhất Phương   |
 
 # Giới thiệu project: Quản lý học sinh
+
 **Ứng dụng quản lý học sinh giúp:**
+
 - Cung cấp nhiều tính năng, quản lý các phương diện cho trường học.
 - Nắm bắt thông tin các học sinh một cách nhanh nhất, dễ dàng nhất.
 - Cung cấp cho học sinh và phụ huynh những thông tin về lớp học, môn học, bảng điểm,… một cách nhanh chóng.
@@ -27,6 +30,7 @@
 **2. Tạo một môi trường trên máy và kích hoạt môi trường**
 
 **Cài đặt môi trường**
+
 ```
 pip install virtualenv
 ```
@@ -44,43 +48,49 @@ venv/scripts/activate
 ```
 
 **3. Clone project**
+
 ```
 git clone https://github.com/ngoxuanchien/QuanLyHocSinh.git
 ```
 
 **4. Chuyển đến thư mục chứa project**
+
 ```
 cd QuanLyHocSinh
 ```
 
 **5. Cài đặt các thư viện từ 'requirements.txt'**
+
 ```python
 pip install -r requirements.txt
 ```
 
 **6. Database migration**
+
 ```python
 python manage.py migrate
 ```
 
 **7. Tạo tài khoản Admin (Super User)**
+
 ```python
 python manage.py createsuperuser
-``` 
+```
 
 **8. Chạy chương trình**
+
 ```python
 python manage.py runserver
 ```
 
 **9. Đăng nhập và sử dụng**
 
-
-
 # Link Youtube video demo
+
 https://www.youtube.com/watch?v=u7fZ61vWW14
 
 # Current status
+
 - Đăng nhập bằng tài khoản admin
 - Thêm, xóa học sinh
 - Chỉnh sửa thông tin học sinh
@@ -89,8 +99,9 @@ https://www.youtube.com/watch?v=u7fZ61vWW14
 - Tra cứu học sinh
 - Nhận bảng điểm môn
 - Xem báo cáo tổng kết
-- Quản lý quy định
 
 # Future works
+
+- Quản lý quy định
 - Chỉnh sửa giao diện người dùng
 - Thêm chức năng tạo tài khoản
