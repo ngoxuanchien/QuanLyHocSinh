@@ -56,7 +56,7 @@ git clone https://github.com/ngoxuanchien/QuanLyHocSinh.git
 **4. Chuyển đến thư mục chứa project**
 
 ```
-cd QuanLyHocSinh
+cd QuanLyHocSinh/QuanLyHocSinh
 ```
 
 **5. Cài đặt các thư viện từ 'requirements.txt'**
@@ -104,4 +104,3 @@ https://www.youtube.com/watch?v=u7fZ61vWW14
 
 - Quản lý quy định
 - Chỉnh sửa giao diện người dùng
-- Thêm chức năng tạo tài khoản
