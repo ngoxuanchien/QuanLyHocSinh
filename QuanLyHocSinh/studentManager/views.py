@@ -288,9 +288,7 @@ def trungBinhMon(subject, student):
                 (mark.markFifteen + 2 * mark.markOne + 3 * mark.markFinal) / 6, 2)
     return avgMarks1, avgMarks2
 
-# @login_required(login_url='loginpage')
-
-
+@login_required(login_url='loginpage')
 def traCuuNamHoc(request):
     form = YearForm()
     age = Age.objects.all()
@@ -301,7 +299,7 @@ def traCuuNamHoc(request):
     return render(request, 'studentManager/traCuuNamHoc.html', context)
 
 
-# @allowed_users(allowed_roles=['Admin', 'Teacher'])
+
 @login_required(login_url='loginpage')
 def traCuu(request, pk):
     year = Age.objects.get(id=pk)
@@ -324,8 +322,8 @@ def traCuu(request, pk):
         for i in m:
             s1 += i[0]
             s2 += i[1]
-        avgMarks1.append(s1/len(m))
-        avgMarks2.append(s2/len(m))
+        avgMarks1.append(round((s1/len(m)),2))
+        avgMarks2.append(round((s2/len(m)),2))
         for c in student.classOfSchool.all():
             if c.year == year:
                 classOfSchool.append(c)
